@@ -5,9 +5,23 @@ part 'login_state.freezed.dart';
 
 @freezed
 class LoginState with _$LoginState {
-  const factory LoginState.loading() = Loading;
-  const factory LoginState.data({required int userId}) = Data;
-  const factory LoginState.error([String? message]) = ErrorDetails;
-}
+  const factory LoginState({
+    required bool isLoading,
+    required bool isAuthFailure,
+    required bool isNetworkFailure,
+    required bool showInvalidUsernameMessage,
+    required String invalidUsernameMessage,
+    required bool showInvalidPasswordMessage,
+    required String invalidPasswordMessage,
+  }) = _LoginState;
 
-// TODO: Add states. Reread DDD chapter. Make them private?
+  factory LoginState.initial() => const LoginState(
+    isLoading: false,
+    isAuthFailure: false,
+    isNetworkFailure: false,
+    showInvalidUsernameMessage: false,
+    invalidUsernameMessage: '',
+    showInvalidPasswordMessage: false,
+    invalidPasswordMessage: ''
+  );
+}
