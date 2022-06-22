@@ -19,7 +19,9 @@ abstract class LoginRemoteDataSource {
 
 // TODO: Unit test all these exceptions and failure responses.
 class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
-  LoginRemoteDataSourceImpl({required http.Client client}) : _client = client;
+  LoginRemoteDataSourceImpl({
+    required http.Client client,
+  }) : _client = client;
 
   final http.Client _client;
 

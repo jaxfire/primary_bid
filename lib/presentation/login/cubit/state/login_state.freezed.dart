@@ -19,6 +19,7 @@ mixin _$LoginState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isAuthFailure => throw _privateConstructorUsedError;
   bool get isNetworkFailure => throw _privateConstructorUsedError;
+  bool get isOtherFailure => throw _privateConstructorUsedError;
   bool get showInvalidUsernameMessage => throw _privateConstructorUsedError;
   String get invalidUsernameMessage => throw _privateConstructorUsedError;
   bool get showInvalidPasswordMessage => throw _privateConstructorUsedError;
@@ -38,6 +39,7 @@ abstract class $LoginStateCopyWith<$Res> {
       {bool isLoading,
       bool isAuthFailure,
       bool isNetworkFailure,
+      bool isOtherFailure,
       bool showInvalidUsernameMessage,
       String invalidUsernameMessage,
       bool showInvalidPasswordMessage,
@@ -57,6 +59,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
     Object? isLoading = freezed,
     Object? isAuthFailure = freezed,
     Object? isNetworkFailure = freezed,
+    Object? isOtherFailure = freezed,
     Object? showInvalidUsernameMessage = freezed,
     Object? invalidUsernameMessage = freezed,
     Object? showInvalidPasswordMessage = freezed,
@@ -74,6 +77,10 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
       isNetworkFailure: isNetworkFailure == freezed
           ? _value.isNetworkFailure
           : isNetworkFailure // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOtherFailure: isOtherFailure == freezed
+          ? _value.isOtherFailure
+          : isOtherFailure // ignore: cast_nullable_to_non_nullable
               as bool,
       showInvalidUsernameMessage: showInvalidUsernameMessage == freezed
           ? _value.showInvalidUsernameMessage
@@ -106,6 +113,7 @@ abstract class _$$_LoginStateCopyWith<$Res>
       {bool isLoading,
       bool isAuthFailure,
       bool isNetworkFailure,
+      bool isOtherFailure,
       bool showInvalidUsernameMessage,
       String invalidUsernameMessage,
       bool showInvalidPasswordMessage,
@@ -127,6 +135,7 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     Object? isLoading = freezed,
     Object? isAuthFailure = freezed,
     Object? isNetworkFailure = freezed,
+    Object? isOtherFailure = freezed,
     Object? showInvalidUsernameMessage = freezed,
     Object? invalidUsernameMessage = freezed,
     Object? showInvalidPasswordMessage = freezed,
@@ -144,6 +153,10 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
       isNetworkFailure: isNetworkFailure == freezed
           ? _value.isNetworkFailure
           : isNetworkFailure // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isOtherFailure: isOtherFailure == freezed
+          ? _value.isOtherFailure
+          : isOtherFailure // ignore: cast_nullable_to_non_nullable
               as bool,
       showInvalidUsernameMessage: showInvalidUsernameMessage == freezed
           ? _value.showInvalidUsernameMessage
@@ -172,6 +185,7 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
       {required this.isLoading,
       required this.isAuthFailure,
       required this.isNetworkFailure,
+      required this.isOtherFailure,
       required this.showInvalidUsernameMessage,
       required this.invalidUsernameMessage,
       required this.showInvalidPasswordMessage,
@@ -184,6 +198,8 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
   @override
   final bool isNetworkFailure;
   @override
+  final bool isOtherFailure;
+  @override
   final bool showInvalidUsernameMessage;
   @override
   final String invalidUsernameMessage;
@@ -194,7 +210,7 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LoginState(isLoading: $isLoading, isAuthFailure: $isAuthFailure, isNetworkFailure: $isNetworkFailure, showInvalidUsernameMessage: $showInvalidUsernameMessage, invalidUsernameMessage: $invalidUsernameMessage, showInvalidPasswordMessage: $showInvalidPasswordMessage, invalidPasswordMessage: $invalidPasswordMessage)';
+    return 'LoginState(isLoading: $isLoading, isAuthFailure: $isAuthFailure, isNetworkFailure: $isNetworkFailure, isOtherFailure: $isOtherFailure, showInvalidUsernameMessage: $showInvalidUsernameMessage, invalidUsernameMessage: $invalidUsernameMessage, showInvalidPasswordMessage: $showInvalidPasswordMessage, invalidPasswordMessage: $invalidPasswordMessage)';
   }
 
   @override
@@ -205,6 +221,7 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
       ..add(DiagnosticsProperty('isLoading', isLoading))
       ..add(DiagnosticsProperty('isAuthFailure', isAuthFailure))
       ..add(DiagnosticsProperty('isNetworkFailure', isNetworkFailure))
+      ..add(DiagnosticsProperty('isOtherFailure', isOtherFailure))
       ..add(DiagnosticsProperty(
           'showInvalidUsernameMessage', showInvalidUsernameMessage))
       ..add(
@@ -225,6 +242,8 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
                 .equals(other.isAuthFailure, isAuthFailure) &&
             const DeepCollectionEquality()
                 .equals(other.isNetworkFailure, isNetworkFailure) &&
+            const DeepCollectionEquality()
+                .equals(other.isOtherFailure, isOtherFailure) &&
             const DeepCollectionEquality().equals(
                 other.showInvalidUsernameMessage, showInvalidUsernameMessage) &&
             const DeepCollectionEquality()
@@ -241,6 +260,7 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(isAuthFailure),
       const DeepCollectionEquality().hash(isNetworkFailure),
+      const DeepCollectionEquality().hash(isOtherFailure),
       const DeepCollectionEquality().hash(showInvalidUsernameMessage),
       const DeepCollectionEquality().hash(invalidUsernameMessage),
       const DeepCollectionEquality().hash(showInvalidPasswordMessage),
@@ -257,6 +277,7 @@ abstract class _LoginState implements LoginState {
       {required final bool isLoading,
       required final bool isAuthFailure,
       required final bool isNetworkFailure,
+      required final bool isOtherFailure,
       required final bool showInvalidUsernameMessage,
       required final String invalidUsernameMessage,
       required final bool showInvalidPasswordMessage,
@@ -268,6 +289,8 @@ abstract class _LoginState implements LoginState {
   bool get isAuthFailure => throw _privateConstructorUsedError;
   @override
   bool get isNetworkFailure => throw _privateConstructorUsedError;
+  @override
+  bool get isOtherFailure => throw _privateConstructorUsedError;
   @override
   bool get showInvalidUsernameMessage => throw _privateConstructorUsedError;
   @override

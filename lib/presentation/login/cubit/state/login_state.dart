@@ -9,6 +9,7 @@ class LoginState with _$LoginState {
     required bool isLoading,
     required bool isAuthFailure,
     required bool isNetworkFailure,
+    required bool isOtherFailure,
     required bool showInvalidUsernameMessage,
     required String invalidUsernameMessage,
     required bool showInvalidPasswordMessage,
@@ -16,12 +17,12 @@ class LoginState with _$LoginState {
   }) = _LoginState;
 
   factory LoginState.initial() => const LoginState(
-    isLoading: false,
-    isAuthFailure: false,
-    isNetworkFailure: false,
-    showInvalidUsernameMessage: false,
-    invalidUsernameMessage: '',
-    showInvalidPasswordMessage: false,
-    invalidPasswordMessage: ''
-  );
+      isLoading: false,
+      isAuthFailure: false,
+      isNetworkFailure: false,
+      isOtherFailure: false,
+      showInvalidUsernameMessage: false,
+      invalidUsernameMessage: '',
+      showInvalidPasswordMessage: false,
+      invalidPasswordMessage: '');
 }

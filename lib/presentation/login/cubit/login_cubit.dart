@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:primary_bid/features/common/presentation/input_validators/password_validator.dart';
 import 'package:primary_bid/features/common/presentation/input_validators/username_validator.dart';
+import 'package:primary_bid/features/login/data/failures/login_failure.dart';
 import 'package:primary_bid/features/login/domain/login_repository.dart';
 import 'package:primary_bid/presentation/login/cubit/state/login_state.dart';
 
@@ -38,14 +39,28 @@ class LoginCubit extends Cubit<LoginState> {
     // Valid input from here onwards
 
     // Make request
-    final loginResult = await _loginRepository.login(emailAddress: username, password: password);
+    final loginResult = await _loginRepository.login(username: username, password: password);
     // Request success or failure?
-    loginResult.either((left) => {
-      // onFailure. Show relevant error message. Network or Auth.
-    }, (right) => null);
-
-
-    // onSuccess. Save auth token. Proceed regardless.
+    loginResult.either(
+      (failure) {
+        // onFailure. Show relevant error message. Network or Auth.
+        switch (failure) {
+          case LoginFailure.auth:
+            emit(state.copyWith(isAuthFailure: true));
+            break;
+          case LoginFailure.network:
+            emit(state.copyWith(isNetworkFailure: true));
+            break;
+          case LoginFailure.other:
+            emit(state.copyWith(isOtherFailure: true));
+            break;
+        }
+      },
+      (token) {
+        // onSuccess. Save auth token. Proceed regardless.
+        // TODO: Save auth token
+      },
+    );
   }
 
   void emitValidationErrorMessages(
