@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:primary_bid/features/auth/auth_repository.dart';
 import 'package:primary_bid/features/auth/local_data_source/auth_local_data_source.dart';
 import 'package:primary_bid/features/auth/local_data_source/auth_local_data_source_hive.dart';
 import 'package:primary_bid/features/common/presentation/input_validators/password_validator.dart';
@@ -22,6 +23,7 @@ initDependencies() async {
   getIt.registerLazySingleton<LoginRepository>(() => LoginRepositoryImpl(loginRemoteDataSource: getIt()));
 
   getIt.registerLazySingleton<AuthLocalDataSource>(() => AuthLocalDataSourceHive());
+  getIt.registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(authLocalDataSource: getIt()));
 
   getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt(), getIt(), getIt(), getIt()));
 }
