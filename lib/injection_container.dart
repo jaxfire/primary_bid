@@ -6,8 +6,8 @@ import 'package:primary_bid/features/common/presentation/input_validators/userna
 import 'package:primary_bid/features/login/login_repository.dart';
 import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source.dart';
 import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source_http.dart';
-import 'package:primary_bid/presentation/login/cubit/login_cubit.dart';
 import 'package:http/http.dart' as http;
+import 'package:primary_bid/presentation/login_screen/cubit/login_cubit.dart';
 
 
 final getIt = GetIt.instance;

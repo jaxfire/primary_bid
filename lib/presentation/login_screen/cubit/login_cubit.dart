@@ -4,7 +4,7 @@ import 'package:primary_bid/features/common/presentation/input_validators/passwo
 import 'package:primary_bid/features/common/presentation/input_validators/username_validator.dart';
 import 'package:primary_bid/features/login/login_failure.dart';
 import 'package:primary_bid/features/login/login_repository.dart';
-import 'package:primary_bid/presentation/login/cubit/state/login_state.dart';
+import 'package:primary_bid/presentation/login_screen/cubit/state/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(
@@ -35,6 +35,7 @@ class LoginCubit extends Cubit<LoginState> {
     if (usernameValidatorResponse != UsernameValidatorResult.valid ||
         passwordValidatorResponse != PasswordValidatorResult.valid) {
       emitValidationErrorMessages(usernameValidatorResponse, passwordValidatorResponse);
+      emit(state.copyWith(isLoading: false));
       return;
     }
 
@@ -52,9 +53,12 @@ class LoginCubit extends Cubit<LoginState> {
             emit(state.copyWith(isOtherFailure: true, isLoading: false));
             break;
         }
+        emit(state.copyWith(isLoading: false));
       },
       (authToken) {
         _authRepository.setAuthToken(authToken: authToken);
+
+        emit(LoginState.initial());
 
         // TODO: Proceed to next screen
         print('Proceed to next screen');
@@ -72,7 +76,6 @@ class LoginCubit extends Cubit<LoginState> {
         emit(state.copyWith(
           invalidUsernameMessage: 'Please provide a username',
           showInvalidUsernameMessage: true,
-          isLoading: false,
         ));
         break;
       case UsernameValidatorResult.valid:
@@ -84,7 +87,6 @@ class LoginCubit extends Cubit<LoginState> {
         emit(state.copyWith(
           invalidPasswordMessage: 'Please provide a password',
           showInvalidPasswordMessage: true,
-          isLoading: false,
         ));
         break;
       case PasswordValidatorResult.valid:
