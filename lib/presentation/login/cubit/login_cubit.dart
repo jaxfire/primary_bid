@@ -1,4 +1,5 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:primary_bid/features/auth/auth_repository.dart';
 import 'package:primary_bid/features/common/presentation/input_validators/password_validator.dart';
 import 'package:primary_bid/features/common/presentation/input_validators/username_validator.dart';
 import 'package:primary_bid/features/login/login_failure.dart';
@@ -10,18 +11,21 @@ class LoginCubit extends Cubit<LoginState> {
     UsernameValidator usernameValidator,
     PasswordValidator passwordValidator,
     LoginRepository loginRepository,
+    AuthRepository authRepository,
   )   : _usernameValidator = usernameValidator,
         _passwordValidator = passwordValidator,
         _loginRepository = loginRepository,
+        _authRepository = authRepository,
         super(LoginState.initial());
 
   final UsernameValidator _usernameValidator;
   final PasswordValidator _passwordValidator;
   final LoginRepository _loginRepository;
+  final AuthRepository _authRepository;
 
   // TODO: Can we break up large cubit/bloc methods?
   void onLoginButtonClicked(String username, String password) async {
-    emit(state.copyWith(isLoading: true));
+    emit(LoginState.initial().copyWith(isLoading: true));
 
     // TODO: Could hash the password here using DI'd in hasher
 
@@ -30,34 +34,30 @@ class LoginCubit extends Cubit<LoginState> {
 
     if (usernameValidatorResponse != UsernameValidatorResult.valid ||
         passwordValidatorResponse != PasswordValidatorResult.valid) {
-      // Call function to emit error messages and return
       emitValidationErrorMessages(usernameValidatorResponse, passwordValidatorResponse);
       return;
     }
 
-    // Valid input from here onwards
-
-    // Make request
     final loginResult = await _loginRepository.login(username: username, password: password);
-    // Request success or failure?
     loginResult.either(
       (failure) {
-        // onFailure. Show relevant error message. Network or Auth.
         switch (failure) {
           case LoginFailure.auth:
-            emit(state.copyWith(isAuthFailure: true));
+            emit(state.copyWith(isAuthFailure: true, isLoading: false));
             break;
           case LoginFailure.network:
-            emit(state.copyWith(isNetworkFailure: true));
+            emit(state.copyWith(isNetworkFailure: true, isLoading: false));
             break;
           case LoginFailure.other:
-            emit(state.copyWith(isOtherFailure: true));
+            emit(state.copyWith(isOtherFailure: true, isLoading: false));
             break;
         }
       },
-      (token) {
-        // onSuccess. Save auth token. Proceed regardless.
-        // TODO: Save auth token
+      (authToken) {
+        _authRepository.setAuthToken(authToken: authToken);
+
+        // TODO: Proceed to next screen
+        print('Proceed to next screen');
       },
     );
   }

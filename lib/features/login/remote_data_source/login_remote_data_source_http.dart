@@ -4,19 +4,10 @@ import 'dart:io';
 
 import 'package:either_dart/either.dart';
 import 'package:http/http.dart' as http;
-import 'package:primary_bid/features/common/exceptions.dart';
 import 'package:primary_bid/features/common/urls.dart';
 import 'package:primary_bid/features/login/login_failure.dart';
+import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source.dart';
 
-abstract class LoginRemoteDataSource {
-  /// Calls the https://fakestoreapi.com/auth/login endpoint.
-  ///
-  /// Throws a [AuthException] for 401 Unauthorized responses.
-  /// Throws a [ServerException] for all other error codes and exceptions
-  Future<Either<LoginFailure, String>> login({required String username, required String password});
-}
-
-// TODO: Unit test all these exceptions and failure responses.
 class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
   LoginRemoteDataSourceImpl({
     required http.Client client,

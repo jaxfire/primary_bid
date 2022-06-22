@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:primary_bid/features/login/login_remote_data_source.dart';
+import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -10,21 +10,22 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Text('Login'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final login = LoginRemoteDataSourceImpl(client: http.Client());
-
-          final username = Username('mor_2314');
-          final password = Password('83r5^_');
-
-          final result = await login.login(username: username, password: password);
-          result.either(
-            (failure) => print('failure: $failure'),
-            (authToken) => 'authToken: $authToken',
-          );
-        },
+        child: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(labelText: 'Username'),
+            ),
+            TextField(
+              decoration: InputDecoration(labelText: 'Password'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                
+              },
+              child: Text('login'),
+            ),
+          ],
+        ),
       ),
     );
   }
