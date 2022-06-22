@@ -6,14 +6,14 @@ part 'login_state.freezed.dart';
 @freezed
 class LoginState with _$LoginState {
   const factory LoginState({
-    required bool isLoading,//
-    required bool isAuthFailure,//
-    required bool isNetworkFailure,//
-    required bool isOtherFailure,//
-    required bool showInvalidUsernameMessage,//
-    required String invalidUsernameMessage,//
-    required bool showInvalidPasswordMessage,//
-    required String invalidPasswordMessage,//
+    required bool isLoading,
+    required bool isAuthFailure,
+    required bool isNetworkFailure,
+    required bool isOtherFailure,
+    required bool showInvalidUsernameMessage,
+    required String invalidUsernameMessage,
+    required bool showInvalidPasswordMessage,
+    required String invalidPasswordMessage,
   }) = _LoginState;
 
   factory LoginState.initial() => const LoginState(

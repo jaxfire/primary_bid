@@ -25,7 +25,6 @@ class _LoginScreenState extends State<LoginScreen> {
     return BlocBuilder<LoginCubit, LoginState>(
       bloc: cubit,
       builder: (context, state) {
-        print('rebuild');
         return Scaffold(
           body: SafeArea(
             child: Column(
