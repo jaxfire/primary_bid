@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:primary_bid/features/common/presentation/input_validators/password_validator.dart';
 import 'package:primary_bid/features/common/presentation/input_validators/username_validator.dart';
-import 'package:primary_bid/features/login/data/failures/login_failure.dart';
-import 'package:primary_bid/features/login/domain/login_repository.dart';
+import 'package:primary_bid/features/login/login_failure.dart';
+import 'package:primary_bid/features/login/login_repository.dart';
 import 'package:primary_bid/presentation/login/cubit/state/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {

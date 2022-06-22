@@ -1,7 +1,10 @@
 import 'package:either_dart/src/either.dart';
-import 'package:primary_bid/features/login/data/data_sources/login_remote_data_source/login_remote_data_source.dart';
-import 'package:primary_bid/features/login/data/failures/login_failure.dart';
-import 'package:primary_bid/features/login/domain/login_repository.dart';
+import 'package:primary_bid/features/login/login_remote_data_source.dart';
+import 'package:primary_bid/features/login/login_failure.dart';
+
+abstract class LoginRepository {
+  Future<Either<LoginFailure, String>> login({required String username, required String password});
+}
 
 class LoginRepositoryImpl implements LoginRepository {
   LoginRepositoryImpl({

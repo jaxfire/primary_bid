@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:primary_bid/features/login/data/data_sources/login_remote_data_source/login_remote_data_source.dart';
-import 'package:primary_bid/features/login/domain/values/value_objects.dart';
+import 'package:primary_bid/features/login/login_remote_data_source.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);

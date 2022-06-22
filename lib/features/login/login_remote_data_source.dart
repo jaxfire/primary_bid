@@ -4,10 +4,9 @@ import 'dart:io';
 
 import 'package:either_dart/either.dart';
 import 'package:http/http.dart' as http;
-import 'package:meta/meta.dart';
-import 'package:primary_bid/features/common/data/exceptions.dart';
-import 'package:primary_bid/features/common/data/urls.dart';
-import 'package:primary_bid/features/login/data/failures/login_failure.dart';
+import 'package:primary_bid/features/common/exceptions.dart';
+import 'package:primary_bid/features/common/urls.dart';
+import 'package:primary_bid/features/login/login_failure.dart';
 
 abstract class LoginRemoteDataSource {
   /// Calls the https://fakestoreapi.com/auth/login endpoint.
