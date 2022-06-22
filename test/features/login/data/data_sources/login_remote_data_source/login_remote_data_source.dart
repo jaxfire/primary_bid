@@ -27,7 +27,7 @@ void main() {
 
   setUp(() {
     mockHttpClient = MockHttpClient();
-    sut = LoginRemoteDataSourceImpl(client: mockHttpClient);
+    sut = LoginRemoteDataSourceHttp(client: mockHttpClient);
   });
 
   group('failures', () {

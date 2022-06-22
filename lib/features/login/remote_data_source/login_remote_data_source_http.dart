@@ -8,8 +8,8 @@ import 'package:primary_bid/features/common/urls.dart';
 import 'package:primary_bid/features/login/login_failure.dart';
 import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source.dart';
 
-class LoginRemoteDataSourceImpl implements LoginRemoteDataSource {
-  LoginRemoteDataSourceImpl({
+class LoginRemoteDataSourceHttp implements LoginRemoteDataSource {
+  LoginRemoteDataSourceHttp({
     required http.Client client,
   }) : _client = client;
 
