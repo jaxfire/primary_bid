@@ -9,13 +9,13 @@ class CategoriesState with _$CategoriesState {
     required bool isLoading,
     required bool isNetworkFailure,
     required bool isOtherFailure,
-    required List<String> loadSuccess,
+    required List<String> data,
   }) = _CategoriesState;
 
   factory CategoriesState.initial() => const CategoriesState(
         isLoading: false,
         isNetworkFailure: false,
         isOtherFailure: false,
-        loadSuccess: [],
+        data: [],
       );
 }

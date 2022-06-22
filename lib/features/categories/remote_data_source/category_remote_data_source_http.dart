@@ -16,19 +16,19 @@ class CategoryRemoteDataSourceHttp implements CategoryRemoteDataSource {
   final http.Client _client;
 
   @override
-  Future<Either<CategoryFailure, List<String>>> getCategories() async {
+  Future<Either<GetCategoryFailure, List<String>>> getCategories() async {
     try {
       return await _getCategories();
     } on SocketException {
-      return const Left(CategoryFailure.network);
+      return const Left(GetCategoryFailure.network);
     } on TimeoutException {
-      return const Left(CategoryFailure.network);
+      return const Left(GetCategoryFailure.network);
     } catch (e) {
-      return const Left(CategoryFailure.other);
+      return const Left(GetCategoryFailure.other);
     }
   }
 
-  Future<Either<CategoryFailure, List<String>>> _getCategories() async {
+  Future<Either<GetCategoryFailure, List<String>>> _getCategories() async {
     final response = await _client.get(
       Uri.parse('$baseUrl$getCategoriesEndpoint'), // TODO: Unit test this. Rework storing of urls.
       headers: {
@@ -37,13 +37,11 @@ class CategoryRemoteDataSourceHttp implements CategoryRemoteDataSource {
     );
 
     if (response.statusCode >= 200 && response.statusCode <= 300) {
-
-      // TODO
-      Iterable l = json.decode(response.body);
-
-      return Right(['todo']);
+      Iterable iterableDynamic = json.decode(response.body);
+      List<String> listString = iterableDynamic.map((element) => element.toString()).toList();
+      return Right(listString);
     } else {
-      return const Left(CategoryFailure.other);
+      return const Left(GetCategoryFailure.other);
     }
   }
 }

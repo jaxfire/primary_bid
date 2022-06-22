@@ -1,5 +1,5 @@
-
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:primary_bid/features/categories/category_failure.dart';
 import 'package:primary_bid/features/categories/category_repository.dart';
 import 'package:primary_bid/presentation/categories_screen/cubit/categories_state.dart';
 
@@ -10,7 +10,26 @@ class CategoriesCubit extends Cubit<CategoriesState> {
 
   final CategoryRepository _categoryRepository;
 
-  void getCategories() {
+  // TODO: Rename to get all categories?
+  void getCategories() async {
     emit(CategoriesState.initial().copyWith(isLoading: true));
+
+    final getCategoriesResult = await _categoryRepository.getCategories();
+
+    getCategoriesResult.either(
+      (categoryFailure) {
+        switch (categoryFailure) {
+          case GetCategoryFailure.network:
+            emit(state.copyWith(isNetworkFailure: true, isLoading: false));
+            break;
+          case GetCategoryFailure.other:
+            emit(state.copyWith(isOtherFailure: true, isLoading: false));
+            break;
+        }
+      },
+      (categories) {
+        emit(state.copyWith(data: categories, isLoading: false));
+      },
+    );
   }
 }

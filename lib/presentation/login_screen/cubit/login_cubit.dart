@@ -42,8 +42,8 @@ class LoginCubit extends Cubit<LoginState> {
 
     final loginResult = await _loginRepository.login(username: username, password: password);
     loginResult.either(
-      (failure) {
-        switch (failure) {
+      (loginFailure) {
+        switch (loginFailure) {
           case LoginFailure.auth:
             emit(state.copyWith(isAuthFailure: true, isLoading: false));
             break;
@@ -54,7 +54,7 @@ class LoginCubit extends Cubit<LoginState> {
             emit(state.copyWith(isOtherFailure: true, isLoading: false));
             break;
         }
-        emit(state.copyWith(isLoading: false));
+        emit(state.copyWith(isLoading: false)); // TODO: Is this needed?
       },
       (authToken) {
         _authRepository.setAuthToken(authToken: authToken);

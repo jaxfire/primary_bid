@@ -14,7 +14,6 @@ class CategoriesScreen extends StatefulWidget {
 }
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
-
   final cubit = getIt<CategoriesCubit>();
 
   @override
@@ -28,9 +27,30 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       bloc: cubit,
       builder: (context, state) {
-        return const Scaffold(
+        return Scaffold(
           body: SafeArea(
-            child: Text('TODO'),
+            child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.center,
+                  child: Visibility(
+                    visible: state.isLoading,
+                    child: const CircularProgressIndicator(),
+                  ),
+                ),
+                ListView.builder(
+                  itemCount: state.data.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title: Text(
+                        state.data[index],
+                        style: const TextStyle(color: Colors.black),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         );
       },
