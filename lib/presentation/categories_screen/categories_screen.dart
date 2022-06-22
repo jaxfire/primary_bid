@@ -7,6 +7,8 @@ import 'package:primary_bid/presentation/categories_screen/cubit/categories_stat
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/categories';
+
   @override
   State<CategoriesScreen> createState() => _CategoriesScreenState();
 }

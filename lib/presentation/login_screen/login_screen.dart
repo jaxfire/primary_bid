@@ -10,6 +10,8 @@ import 'package:primary_bid/presentation/login_screen/cubit/state/login_state.da
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/login';
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
