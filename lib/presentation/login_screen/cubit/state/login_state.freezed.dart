@@ -24,6 +24,7 @@ mixin _$LoginState {
   String get invalidUsernameMessage => throw _privateConstructorUsedError;
   bool get showInvalidPasswordMessage => throw _privateConstructorUsedError;
   String get invalidPasswordMessage => throw _privateConstructorUsedError;
+  String get navigateTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -43,7 +44,8 @@ abstract class $LoginStateCopyWith<$Res> {
       bool showInvalidUsernameMessage,
       String invalidUsernameMessage,
       bool showInvalidPasswordMessage,
-      String invalidPasswordMessage});
+      String invalidPasswordMessage,
+      String navigateTo});
 }
 
 /// @nodoc
@@ -64,6 +66,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
     Object? invalidUsernameMessage = freezed,
     Object? showInvalidPasswordMessage = freezed,
     Object? invalidPasswordMessage = freezed,
+    Object? navigateTo = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -98,6 +101,10 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
           ? _value.invalidPasswordMessage
           : invalidPasswordMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      navigateTo: navigateTo == freezed
+          ? _value.navigateTo
+          : navigateTo // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -117,7 +124,8 @@ abstract class _$$_LoginStateCopyWith<$Res>
       bool showInvalidUsernameMessage,
       String invalidUsernameMessage,
       bool showInvalidPasswordMessage,
-      String invalidPasswordMessage});
+      String invalidPasswordMessage,
+      String navigateTo});
 }
 
 /// @nodoc
@@ -140,6 +148,7 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     Object? invalidUsernameMessage = freezed,
     Object? showInvalidPasswordMessage = freezed,
     Object? invalidPasswordMessage = freezed,
+    Object? navigateTo = freezed,
   }) {
     return _then(_$_LoginState(
       isLoading: isLoading == freezed
@@ -174,6 +183,10 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
           ? _value.invalidPasswordMessage
           : invalidPasswordMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      navigateTo: navigateTo == freezed
+          ? _value.navigateTo
+          : navigateTo // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -189,7 +202,8 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
       required this.showInvalidUsernameMessage,
       required this.invalidUsernameMessage,
       required this.showInvalidPasswordMessage,
-      required this.invalidPasswordMessage});
+      required this.invalidPasswordMessage,
+      required this.navigateTo});
 
   @override
   final bool isLoading;
@@ -207,10 +221,12 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
   final bool showInvalidPasswordMessage;
   @override
   final String invalidPasswordMessage;
+  @override
+  final String navigateTo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'LoginState(isLoading: $isLoading, isAuthFailure: $isAuthFailure, isNetworkFailure: $isNetworkFailure, isOtherFailure: $isOtherFailure, showInvalidUsernameMessage: $showInvalidUsernameMessage, invalidUsernameMessage: $invalidUsernameMessage, showInvalidPasswordMessage: $showInvalidPasswordMessage, invalidPasswordMessage: $invalidPasswordMessage)';
+    return 'LoginState(isLoading: $isLoading, isAuthFailure: $isAuthFailure, isNetworkFailure: $isNetworkFailure, isOtherFailure: $isOtherFailure, showInvalidUsernameMessage: $showInvalidUsernameMessage, invalidUsernameMessage: $invalidUsernameMessage, showInvalidPasswordMessage: $showInvalidPasswordMessage, invalidPasswordMessage: $invalidPasswordMessage, navigateTo: $navigateTo)';
   }
 
   @override
@@ -228,8 +244,9 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
           DiagnosticsProperty('invalidUsernameMessage', invalidUsernameMessage))
       ..add(DiagnosticsProperty(
           'showInvalidPasswordMessage', showInvalidPasswordMessage))
-      ..add(DiagnosticsProperty(
-          'invalidPasswordMessage', invalidPasswordMessage));
+      ..add(
+          DiagnosticsProperty('invalidPasswordMessage', invalidPasswordMessage))
+      ..add(DiagnosticsProperty('navigateTo', navigateTo));
   }
 
   @override
@@ -251,7 +268,9 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
             const DeepCollectionEquality().equals(
                 other.showInvalidPasswordMessage, showInvalidPasswordMessage) &&
             const DeepCollectionEquality()
-                .equals(other.invalidPasswordMessage, invalidPasswordMessage));
+                .equals(other.invalidPasswordMessage, invalidPasswordMessage) &&
+            const DeepCollectionEquality()
+                .equals(other.navigateTo, navigateTo));
   }
 
   @override
@@ -264,7 +283,8 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
       const DeepCollectionEquality().hash(showInvalidUsernameMessage),
       const DeepCollectionEquality().hash(invalidUsernameMessage),
       const DeepCollectionEquality().hash(showInvalidPasswordMessage),
-      const DeepCollectionEquality().hash(invalidPasswordMessage));
+      const DeepCollectionEquality().hash(invalidPasswordMessage),
+      const DeepCollectionEquality().hash(navigateTo));
 
   @JsonKey(ignore: true)
   @override
@@ -281,7 +301,8 @@ abstract class _LoginState implements LoginState {
       required final bool showInvalidUsernameMessage,
       required final String invalidUsernameMessage,
       required final bool showInvalidPasswordMessage,
-      required final String invalidPasswordMessage}) = _$_LoginState;
+      required final String invalidPasswordMessage,
+      required final String navigateTo}) = _$_LoginState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
@@ -299,6 +320,8 @@ abstract class _LoginState implements LoginState {
   bool get showInvalidPasswordMessage => throw _privateConstructorUsedError;
   @override
   String get invalidPasswordMessage => throw _privateConstructorUsedError;
+  @override
+  String get navigateTo => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:http/http.dart' as http;
-import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source.dart';
 import 'package:primary_bid/injection_container.dart';
 import 'package:primary_bid/presentation/login_screen/cubit/login_cubit.dart';
 import 'package:primary_bid/presentation/login_screen/cubit/state/login_state.dart';
@@ -24,8 +22,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginCubit, LoginState>(
+    return BlocConsumer<LoginCubit, LoginState>(
       bloc: cubit,
+      listener: (context, state) {
+        if (state.navigateTo.isNotEmpty) {
+          Navigator.pushNamed(context, state.navigateTo);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(

@@ -14,6 +14,7 @@ class LoginState with _$LoginState {
     required String invalidUsernameMessage,
     required bool showInvalidPasswordMessage,
     required String invalidPasswordMessage,
+    required String navigateTo,
   }) = _LoginState;
 
   factory LoginState.initial() => const LoginState(
@@ -24,5 +25,6 @@ class LoginState with _$LoginState {
       showInvalidUsernameMessage: false,
       invalidUsernameMessage: '',
       showInvalidPasswordMessage: false,
-      invalidPasswordMessage: '');
+      invalidPasswordMessage: '',
+      navigateTo: '');
 }

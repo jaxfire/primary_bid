@@ -4,6 +4,7 @@ import 'package:primary_bid/features/common/presentation/input_validators/passwo
 import 'package:primary_bid/features/common/presentation/input_validators/username_validator.dart';
 import 'package:primary_bid/features/login/login_failure.dart';
 import 'package:primary_bid/features/login/login_repository.dart';
+import 'package:primary_bid/presentation/categories_screen/categories_screen.dart';
 import 'package:primary_bid/presentation/login_screen/cubit/state/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -57,11 +58,7 @@ class LoginCubit extends Cubit<LoginState> {
       },
       (authToken) {
         _authRepository.setAuthToken(authToken: authToken);
-
-        emit(LoginState.initial());
-
-        // TODO: Proceed to next screen
-        print('Proceed to next screen');
+        emit(LoginState.initial().copyWith(navigateTo: CategoriesScreen.routeName));
       },
     );
   }
