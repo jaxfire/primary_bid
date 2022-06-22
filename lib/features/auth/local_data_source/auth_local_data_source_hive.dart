@@ -6,8 +6,13 @@ class AuthLocalDataSourceHive implements AuthLocalDataSource {
   static const String authTokenHiveElementKey = 'auth_token_hive_element_key';
 
   @override
-  void setAuthToken({required String authToken}) {
-    var box = Hive.box<String>(authTokenHiveBoxKey);
-    box.put(authTokenHiveElementKey, authToken);
+  void setAuthToken({required String authToken}) async {
+    try {
+      await Hive.openBox<String>(authTokenHiveBoxKey);
+      var box = Hive.box<String>(authTokenHiveBoxKey);
+      box.put(authTokenHiveElementKey, authToken);
+    } catch (e) {
+      // For this demo we don't care if persisting the token fails.
+    }
   }
 }
