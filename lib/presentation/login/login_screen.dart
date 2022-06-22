@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                
+
               },
               child: Text('login'),
             ),
