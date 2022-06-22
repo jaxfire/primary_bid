@@ -33,9 +33,21 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               children: [
                 Align(
                   alignment: Alignment.center,
-                  child: Visibility(
-                    visible: state.isLoading,
-                    child: const CircularProgressIndicator(),
+                  child: Column(
+                    children: [
+                      Visibility(
+                        visible: state.isLoading,
+                        child: const CircularProgressIndicator(),
+                      ),
+                      Visibility(
+                        visible: state.isNetworkFailure,
+                        child: const Text('Check network connection.'),
+                      ),
+                      Visibility(
+                        visible: state.isOtherFailure,
+                        child: const Text('Something went wrong. Please try again.'),
+                      ),
+                    ],
                   ),
                 ),
                 ListView.builder(
