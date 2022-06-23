@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:primary_bid/meta/injection_container.dart';
 
-import 'package:primary_bid/injection_container.dart';
 import 'package:primary_bid/presentation/login_screen/cubit/login_cubit.dart';
 import 'package:primary_bid/presentation/login_screen/cubit/state/login_state.dart';
 
@@ -54,6 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   visible: state.showInvalidPasswordMessage,
                   child: Text(state.invalidPasswordMessage),
                 ),
+                // TODO: Could these be combined? One widget with a message.
                 Visibility(
                   visible: state.isAuthFailure,
                   child: const Text('Bad credentials. \n username: mor_2314 \n password: 83r5^_'),

@@ -1,10 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:primary_bid/features/auth/auth_repository.dart';
-import 'package:primary_bid/features/common/presentation/input_validators/password_validator.dart';
-import 'package:primary_bid/features/common/presentation/input_validators/username_validator.dart';
 import 'package:primary_bid/features/login/login_failure.dart';
 import 'package:primary_bid/features/login/login_repository.dart';
 import 'package:primary_bid/presentation/categories_screen/categories_screen.dart';
+import 'package:primary_bid/presentation/common/input_validators/password_validator.dart';
+import 'package:primary_bid/presentation/common/input_validators/username_validator.dart';
 import 'package:primary_bid/presentation/login_screen/cubit/state/login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {

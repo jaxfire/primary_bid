@@ -19,10 +19,10 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     getCategoriesResult.either(
       (categoryFailure) {
         switch (categoryFailure) {
-          case GetCategoryFailure.network:
+          case GetCategoriesFailure.network:
             emit(state.copyWith(isNetworkFailure: true, isLoading: false));
             break;
-          case GetCategoryFailure.other:
+          case GetCategoriesFailure.other:
             emit(state.copyWith(isOtherFailure: true, isLoading: false));
             break;
         }

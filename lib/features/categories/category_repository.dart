@@ -3,7 +3,7 @@ import 'package:primary_bid/features/categories/category_failure.dart';
 import 'package:primary_bid/features/categories/remote_data_source/category_remote_data_source.dart';
 
 abstract class CategoryRepository {
-  Future<Either<GetCategoryFailure, List<String>>> getCategories();
+  Future<Either<GetCategoriesFailure, List<String>>> getCategories();
 }
 
 class CategoryRepositoryImpl implements CategoryRepository {
@@ -14,7 +14,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
   final CategoryRemoteDataSource _categoryRemoteDataSource;
 
   @override
-  Future<Either<GetCategoryFailure, List<String>>> getCategories() async {
+  Future<Either<GetCategoriesFailure, List<String>>> getCategories() async {
     return await _categoryRemoteDataSource.getCategories();
   }
 }

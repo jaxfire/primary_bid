@@ -5,14 +5,18 @@ import 'package:primary_bid/features/auth/local_data_source/auth_local_data_sour
 import 'package:primary_bid/features/categories/category_repository.dart';
 import 'package:primary_bid/features/categories/remote_data_source/category_remote_data_source.dart';
 import 'package:primary_bid/features/categories/remote_data_source/category_remote_data_source_http.dart';
-import 'package:primary_bid/features/common/presentation/input_validators/password_validator.dart';
-import 'package:primary_bid/features/common/presentation/input_validators/username_validator.dart';
 import 'package:primary_bid/features/login/login_repository.dart';
 import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source.dart';
 import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source_http.dart';
 import 'package:http/http.dart' as http;
+import 'package:primary_bid/features/product/product_repository.dart';
+import 'package:primary_bid/features/product/remote_data_source/product_remote_data_source.dart';
+import 'package:primary_bid/features/product/remote_data_source/product_remote_data_source_http.dart';
 import 'package:primary_bid/presentation/categories_screen/cubit/categories_cubit.dart';
+import 'package:primary_bid/presentation/common/input_validators/password_validator.dart';
+import 'package:primary_bid/presentation/common/input_validators/username_validator.dart';
 import 'package:primary_bid/presentation/login_screen/cubit/login_cubit.dart';
+import 'package:primary_bid/presentation/product_list_screen/cubit/product_list_cubit.dart';
 
 
 final getIt = GetIt.instance;
@@ -37,6 +41,13 @@ initDependencies() async {
   getIt.registerLazySingleton<CategoryRepository>(() => CategoryRepositoryImpl(categoryRemoteDataSource: getIt()));
 
   getIt.registerFactory<CategoriesCubit>(() => CategoriesCubit(categoryRepository: getIt()));
+
+
+  // ProductList
+  getIt.registerLazySingleton<ProductRemoteDataSource>(() => ProductRemoteDataSourceHttp(client: getIt()));
+  getIt.registerLazySingleton<ProductRepository>(() => ProductRepositoryImpl(productRemoteDataSource: getIt()));
+
+  getIt.registerFactory<ProductListCubit>(() => ProductListCubit(productRepository: getIt()));
 
   // 3rd party
   getIt.registerLazySingleton<http.Client>(() => http.Client());
