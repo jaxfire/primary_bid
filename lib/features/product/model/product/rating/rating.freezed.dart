@@ -20,7 +20,9 @@ Rating _$RatingFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Rating {
+  @HiveField(0)
   double get rate => throw _privateConstructorUsedError;
+  @HiveField(1)
   int get count => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -32,7 +34,7 @@ mixin _$Rating {
 abstract class $RatingCopyWith<$Res> {
   factory $RatingCopyWith(Rating value, $Res Function(Rating) then) =
       _$RatingCopyWithImpl<$Res>;
-  $Res call({double rate, int count});
+  $Res call({@HiveField(0) double rate, @HiveField(1) int count});
 }
 
 /// @nodoc
@@ -66,7 +68,7 @@ abstract class _$$_RatingCopyWith<$Res> implements $RatingCopyWith<$Res> {
   factory _$$_RatingCopyWith(_$_Rating value, $Res Function(_$_Rating) then) =
       __$$_RatingCopyWithImpl<$Res>;
   @override
-  $Res call({double rate, int count});
+  $Res call({@HiveField(0) double rate, @HiveField(1) int count});
 }
 
 /// @nodoc
@@ -98,15 +100,19 @@ class __$$_RatingCopyWithImpl<$Res> extends _$RatingCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 1, adapterName: 'RatingHiveAdapter')
 class _$_Rating with DiagnosticableTreeMixin implements _Rating {
-  const _$_Rating({required this.rate, required this.count});
+  const _$_Rating(
+      {@HiveField(0) required this.rate, @HiveField(1) required this.count});
 
   factory _$_Rating.fromJson(Map<String, dynamic> json) =>
       _$$_RatingFromJson(json);
 
   @override
+  @HiveField(0)
   final double rate;
   @override
+  @HiveField(1)
   final int count;
 
   @override
@@ -152,13 +158,16 @@ class _$_Rating with DiagnosticableTreeMixin implements _Rating {
 
 abstract class _Rating implements Rating {
   const factory _Rating(
-      {required final double rate, required final int count}) = _$_Rating;
+      {@HiveField(0) required final double rate,
+      @HiveField(1) required final int count}) = _$_Rating;
 
   factory _Rating.fromJson(Map<String, dynamic> json) = _$_Rating.fromJson;
 
   @override
+  @HiveField(0)
   double get rate => throw _privateConstructorUsedError;
   @override
+  @HiveField(1)
   int get count => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

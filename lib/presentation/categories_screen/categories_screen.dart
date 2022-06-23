@@ -4,6 +4,8 @@ import 'package:primary_bid/meta/injection_container.dart';
 import 'package:primary_bid/presentation/categories_screen/cubit/categories_cubit.dart';
 import 'package:primary_bid/presentation/categories_screen/cubit/categories_state.dart';
 import 'package:primary_bid/presentation/product_list_screen/product_list_screen.dart';
+import 'package:primary_bid/presentation/common/widgets/cart_icon/cart_icon.dart';
+
 
 class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({Key? key}) : super(key: key);
@@ -32,6 +34,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           body: SafeArea(
             child: Stack(
               children: [
+                const Align(
+                  alignment: Alignment.topRight,
+                  child: CartIcon(),
+                ),
                 Align(
                   alignment: Alignment.center,
                   child: Column(

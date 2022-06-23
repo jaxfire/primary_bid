@@ -20,12 +20,19 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Product {
+  @HiveField(0)
   int get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
+  @HiveField(2)
   double get price => throw _privateConstructorUsedError;
+  @HiveField(3)
   String get description => throw _privateConstructorUsedError;
+  @HiveField(4)
   String get category => throw _privateConstructorUsedError;
+  @HiveField(5)
   String get image => throw _privateConstructorUsedError;
+  @HiveField(6)
   Rating get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,13 +45,13 @@ abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) =
       _$ProductCopyWithImpl<$Res>;
   $Res call(
-      {int id,
-      String title,
-      double price,
-      String description,
-      String category,
-      String image,
-      Rating rating});
+      {@HiveField(0) int id,
+      @HiveField(1) String title,
+      @HiveField(2) double price,
+      @HiveField(3) String description,
+      @HiveField(4) String category,
+      @HiveField(5) String image,
+      @HiveField(6) Rating rating});
 
   $RatingCopyWith<$Res> get rating;
 }
@@ -114,13 +121,13 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       __$$_ProductCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int id,
-      String title,
-      double price,
-      String description,
-      String category,
-      String image,
-      Rating rating});
+      {@HiveField(0) int id,
+      @HiveField(1) String title,
+      @HiveField(2) double price,
+      @HiveField(3) String description,
+      @HiveField(4) String category,
+      @HiveField(5) String image,
+      @HiveField(6) Rating rating});
 
   @override
   $RatingCopyWith<$Res> get rating;
@@ -180,32 +187,40 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@HiveType(typeId: 0, adapterName: 'ProductHiveAdapter')
 class _$_Product with DiagnosticableTreeMixin implements _Product {
   const _$_Product(
-      {required this.id,
-      required this.title,
-      required this.price,
-      required this.description,
-      required this.category,
-      required this.image,
-      required this.rating});
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.title,
+      @HiveField(2) required this.price,
+      @HiveField(3) required this.description,
+      @HiveField(4) required this.category,
+      @HiveField(5) required this.image,
+      @HiveField(6) required this.rating});
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
       _$$_ProductFromJson(json);
 
   @override
+  @HiveField(0)
   final int id;
   @override
+  @HiveField(1)
   final String title;
   @override
+  @HiveField(2)
   final double price;
   @override
+  @HiveField(3)
   final String description;
   @override
+  @HiveField(4)
   final String category;
   @override
+  @HiveField(5)
   final String image;
   @override
+  @HiveField(6)
   final Rating rating;
 
   @override
@@ -267,29 +282,36 @@ class _$_Product with DiagnosticableTreeMixin implements _Product {
 
 abstract class _Product implements Product {
   const factory _Product(
-      {required final int id,
-      required final String title,
-      required final double price,
-      required final String description,
-      required final String category,
-      required final String image,
-      required final Rating rating}) = _$_Product;
+      {@HiveField(0) required final int id,
+      @HiveField(1) required final String title,
+      @HiveField(2) required final double price,
+      @HiveField(3) required final String description,
+      @HiveField(4) required final String category,
+      @HiveField(5) required final String image,
+      @HiveField(6) required final Rating rating}) = _$_Product;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
   @override
+  @HiveField(0)
   int get id => throw _privateConstructorUsedError;
   @override
+  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
   @override
+  @HiveField(2)
   double get price => throw _privateConstructorUsedError;
   @override
+  @HiveField(3)
   String get description => throw _privateConstructorUsedError;
   @override
+  @HiveField(4)
   String get category => throw _privateConstructorUsedError;
   @override
+  @HiveField(5)
   String get image => throw _privateConstructorUsedError;
   @override
+  @HiveField(6)
   Rating get rating => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
