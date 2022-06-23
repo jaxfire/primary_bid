@@ -1,4 +1,3 @@
-
 enum PasswordValidatorResult { valid, emptyString }
 
 class PasswordValidator {

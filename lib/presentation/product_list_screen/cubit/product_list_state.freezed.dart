@@ -17,34 +17,30 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ProductListState {
   bool get isLoading => throw _privateConstructorUsedError;
+
   bool get isNetworkFailure => throw _privateConstructorUsedError;
-  bool get isOtherFailure =>
-      throw _privateConstructorUsedError; // TODO: Change to unexpected error?
+
+  bool get isOtherFailure => throw _privateConstructorUsedError; // TODO: Change to unexpected error?
   List<Product> get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ProductListStateCopyWith<ProductListState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ProductListStateCopyWith<ProductListState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $ProductListStateCopyWith<$Res> {
-  factory $ProductListStateCopyWith(
-          ProductListState value, $Res Function(ProductListState) then) =
+  factory $ProductListStateCopyWith(ProductListState value, $Res Function(ProductListState) then) =
       _$ProductListStateCopyWithImpl<$Res>;
-  $Res call(
-      {bool isLoading,
-      bool isNetworkFailure,
-      bool isOtherFailure,
-      List<Product> data});
+
+  $Res call({bool isLoading, bool isNetworkFailure, bool isOtherFailure, List<Product> data});
 }
 
 /// @nodoc
-class _$ProductListStateCopyWithImpl<$Res>
-    implements $ProductListStateCopyWith<$Res> {
+class _$ProductListStateCopyWithImpl<$Res> implements $ProductListStateCopyWith<$Res> {
   _$ProductListStateCopyWithImpl(this._value, this._then);
 
   final ProductListState _value;
+
   // ignore: unused_field
   final $Res Function(ProductListState) _then;
 
@@ -77,25 +73,18 @@ class _$ProductListStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_ProductListStateCopyWith<$Res>
-    implements $ProductListStateCopyWith<$Res> {
-  factory _$$_ProductListStateCopyWith(
-          _$_ProductListState value, $Res Function(_$_ProductListState) then) =
+abstract class _$$_ProductListStateCopyWith<$Res> implements $ProductListStateCopyWith<$Res> {
+  factory _$$_ProductListStateCopyWith(_$_ProductListState value, $Res Function(_$_ProductListState) then) =
       __$$_ProductListStateCopyWithImpl<$Res>;
+
   @override
-  $Res call(
-      {bool isLoading,
-      bool isNetworkFailure,
-      bool isOtherFailure,
-      List<Product> data});
+  $Res call({bool isLoading, bool isNetworkFailure, bool isOtherFailure, List<Product> data});
 }
 
 /// @nodoc
-class __$$_ProductListStateCopyWithImpl<$Res>
-    extends _$ProductListStateCopyWithImpl<$Res>
+class __$$_ProductListStateCopyWithImpl<$Res> extends _$ProductListStateCopyWithImpl<$Res>
     implements _$$_ProductListStateCopyWith<$Res> {
-  __$$_ProductListStateCopyWithImpl(
-      _$_ProductListState _value, $Res Function(_$_ProductListState) _then)
+  __$$_ProductListStateCopyWithImpl(_$_ProductListState _value, $Res Function(_$_ProductListState) _then)
       : super(_value, (v) => _then(v as _$_ProductListState));
 
   @override
@@ -131,9 +120,7 @@ class __$$_ProductListStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ProductListState
-    with DiagnosticableTreeMixin
-    implements _ProductListState {
+class _$_ProductListState with DiagnosticableTreeMixin implements _ProductListState {
   const _$_ProductListState(
       {required this.isLoading,
       required this.isNetworkFailure,
@@ -147,8 +134,10 @@ class _$_ProductListState
   final bool isNetworkFailure;
   @override
   final bool isOtherFailure;
+
 // TODO: Change to unexpected error?
   final List<Product> _data;
+
 // TODO: Change to unexpected error?
   @override
   List<Product> get data {
@@ -178,10 +167,8 @@ class _$_ProductListState
         (other.runtimeType == runtimeType &&
             other is _$_ProductListState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.isNetworkFailure, isNetworkFailure) &&
-            const DeepCollectionEquality()
-                .equals(other.isOtherFailure, isOtherFailure) &&
+            const DeepCollectionEquality().equals(other.isNetworkFailure, isNetworkFailure) &&
+            const DeepCollectionEquality().equals(other.isOtherFailure, isOtherFailure) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -208,14 +195,17 @@ abstract class _ProductListState implements ProductListState {
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
+
   @override
   bool get isNetworkFailure => throw _privateConstructorUsedError;
+
   @override
   bool get isOtherFailure => throw _privateConstructorUsedError;
+
   @override // TODO: Change to unexpected error?
   List<Product> get data => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
-  _$$_ProductListStateCopyWith<_$_ProductListState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_ProductListStateCopyWith<_$_ProductListState> get copyWith => throw _privateConstructorUsedError;
 }

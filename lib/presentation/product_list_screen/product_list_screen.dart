@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:primary_bid/meta/injection_container.dart';
+import 'package:primary_bid/app/injection_container.dart';
 import 'package:primary_bid/presentation/common/colours.dart';
+import 'package:primary_bid/presentation/common/styles.dart';
 import 'package:primary_bid/presentation/common/widgets/cart_icon/cart_icon.dart';
 import 'package:primary_bid/presentation/product_list_screen/cubit/product_list_cubit.dart';
 import 'package:primary_bid/presentation/product_list_screen/cubit/product_list_state.dart';
@@ -33,39 +34,49 @@ class _ProductListScreenState extends State<ProductListScreen> {
       bloc: cubit,
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: primary,
+          backgroundColor: Colours.primary,
           body: SafeArea(
-            child: Stack(
+            child: Column(
               children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Column(
+                const Text(
+                  'Products',
+                  style: Styles.screenTitle,
+                ),
+                Expanded(
+                  child: Stack(
                     children: [
-                      Visibility(
-                        visible: state.isLoading,
-                        child: const CircularProgressIndicator(),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Column(
+                          children: [
+                            Visibility(
+                              visible: state.isLoading,
+                              child: const CircularProgressIndicator(color: Colours.accent,),
+                            ),
+                            // TODO: Could these be combined? One widget with a message.
+                            Visibility(
+                              visible: state.isNetworkFailure,
+                              child: const Text('Check network connection.'),
+                            ),
+                            Visibility(
+                              visible: state.isOtherFailure,
+                              child: const Text('Something went wrong. Please try again.'),
+                            ),
+                          ],
+                        ),
                       ),
-                      // TODO: Could these be combined? One widget with a message.
-                      Visibility(
-                        visible: state.isNetworkFailure,
-                        child: const Text('Check network connection.'),
+                      ListView.builder(
+                        itemCount: state.data.length,
+                        itemBuilder: (context, index) {
+                          return ProductCard(product: state.data[index]);
+                        },
                       ),
-                      Visibility(
-                        visible: state.isOtherFailure,
-                        child: const Text('Something went wrong. Please try again.'),
+                      const Align(
+                        alignment: Alignment.bottomLeft,
+                        child: CartIcon(),
                       ),
                     ],
                   ),
-                ),
-                ListView.builder(
-                  itemCount: state.data.length,
-                  itemBuilder: (context, index) {
-                    return ProductCard(product: state.data[index]);
-                  },
-                ),
-                const Align(
-                  alignment: Alignment.topRight,
-                  child: CartIcon(),
                 ),
               ],
             ),

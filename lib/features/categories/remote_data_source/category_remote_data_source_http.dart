@@ -37,7 +37,7 @@ class CategoryRemoteDataSourceHttp implements CategoryRemoteDataSource {
     );
 
     if (response.statusCode >= 200 && response.statusCode <= 300) {
-      Iterable iterableDynamic = json.decode(response.body);
+      Iterable<dynamic> iterableDynamic = json.decode(response.body);
       List<String> listString = iterableDynamic.map((element) => element.toString()).toList();
       return Right(listString);
     } else {

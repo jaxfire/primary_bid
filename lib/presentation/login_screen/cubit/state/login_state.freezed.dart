@@ -17,25 +17,31 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginState {
   bool get isLoading => throw _privateConstructorUsedError;
+
   bool get isAuthFailure => throw _privateConstructorUsedError;
+
   bool get isNetworkFailure => throw _privateConstructorUsedError;
+
   bool get isOtherFailure => throw _privateConstructorUsedError;
+
   bool get showInvalidUsernameMessage => throw _privateConstructorUsedError;
+
   String get invalidUsernameMessage => throw _privateConstructorUsedError;
+
   bool get showInvalidPasswordMessage => throw _privateConstructorUsedError;
+
   String get invalidPasswordMessage => throw _privateConstructorUsedError;
+
   String get navigateTo => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $LoginStateCopyWith<LoginState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $LoginStateCopyWith<LoginState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LoginStateCopyWith<$Res> {
-  factory $LoginStateCopyWith(
-          LoginState value, $Res Function(LoginState) then) =
-      _$LoginStateCopyWithImpl<$Res>;
+  factory $LoginStateCopyWith(LoginState value, $Res Function(LoginState) then) = _$LoginStateCopyWithImpl<$Res>;
+
   $Res call(
       {bool isLoading,
       bool isAuthFailure,
@@ -53,6 +59,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
   _$LoginStateCopyWithImpl(this._value, this._then);
 
   final LoginState _value;
+
   // ignore: unused_field
   final $Res Function(LoginState) _then;
 
@@ -110,11 +117,10 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_LoginStateCopyWith<$Res>
-    implements $LoginStateCopyWith<$Res> {
-  factory _$$_LoginStateCopyWith(
-          _$_LoginState value, $Res Function(_$_LoginState) then) =
+abstract class _$$_LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
+  factory _$$_LoginStateCopyWith(_$_LoginState value, $Res Function(_$_LoginState) then) =
       __$$_LoginStateCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {bool isLoading,
@@ -129,10 +135,8 @@ abstract class _$$_LoginStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
-    implements _$$_LoginStateCopyWith<$Res> {
-  __$$_LoginStateCopyWithImpl(
-      _$_LoginState _value, $Res Function(_$_LoginState) _then)
+class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res> implements _$$_LoginStateCopyWith<$Res> {
+  __$$_LoginStateCopyWithImpl(_$_LoginState _value, $Res Function(_$_LoginState) _then)
       : super(_value, (v) => _then(v as _$_LoginState));
 
   @override
@@ -238,14 +242,10 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
       ..add(DiagnosticsProperty('isAuthFailure', isAuthFailure))
       ..add(DiagnosticsProperty('isNetworkFailure', isNetworkFailure))
       ..add(DiagnosticsProperty('isOtherFailure', isOtherFailure))
-      ..add(DiagnosticsProperty(
-          'showInvalidUsernameMessage', showInvalidUsernameMessage))
-      ..add(
-          DiagnosticsProperty('invalidUsernameMessage', invalidUsernameMessage))
-      ..add(DiagnosticsProperty(
-          'showInvalidPasswordMessage', showInvalidPasswordMessage))
-      ..add(
-          DiagnosticsProperty('invalidPasswordMessage', invalidPasswordMessage))
+      ..add(DiagnosticsProperty('showInvalidUsernameMessage', showInvalidUsernameMessage))
+      ..add(DiagnosticsProperty('invalidUsernameMessage', invalidUsernameMessage))
+      ..add(DiagnosticsProperty('showInvalidPasswordMessage', showInvalidPasswordMessage))
+      ..add(DiagnosticsProperty('invalidPasswordMessage', invalidPasswordMessage))
       ..add(DiagnosticsProperty('navigateTo', navigateTo));
   }
 
@@ -255,22 +255,14 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
         (other.runtimeType == runtimeType &&
             other is _$_LoginState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.isAuthFailure, isAuthFailure) &&
-            const DeepCollectionEquality()
-                .equals(other.isNetworkFailure, isNetworkFailure) &&
-            const DeepCollectionEquality()
-                .equals(other.isOtherFailure, isOtherFailure) &&
-            const DeepCollectionEquality().equals(
-                other.showInvalidUsernameMessage, showInvalidUsernameMessage) &&
-            const DeepCollectionEquality()
-                .equals(other.invalidUsernameMessage, invalidUsernameMessage) &&
-            const DeepCollectionEquality().equals(
-                other.showInvalidPasswordMessage, showInvalidPasswordMessage) &&
-            const DeepCollectionEquality()
-                .equals(other.invalidPasswordMessage, invalidPasswordMessage) &&
-            const DeepCollectionEquality()
-                .equals(other.navigateTo, navigateTo));
+            const DeepCollectionEquality().equals(other.isAuthFailure, isAuthFailure) &&
+            const DeepCollectionEquality().equals(other.isNetworkFailure, isNetworkFailure) &&
+            const DeepCollectionEquality().equals(other.isOtherFailure, isOtherFailure) &&
+            const DeepCollectionEquality().equals(other.showInvalidUsernameMessage, showInvalidUsernameMessage) &&
+            const DeepCollectionEquality().equals(other.invalidUsernameMessage, invalidUsernameMessage) &&
+            const DeepCollectionEquality().equals(other.showInvalidPasswordMessage, showInvalidPasswordMessage) &&
+            const DeepCollectionEquality().equals(other.invalidPasswordMessage, invalidPasswordMessage) &&
+            const DeepCollectionEquality().equals(other.navigateTo, navigateTo));
   }
 
   @override
@@ -288,8 +280,7 @@ class _$_LoginState with DiagnosticableTreeMixin implements _LoginState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
-      __$$_LoginStateCopyWithImpl<_$_LoginState>(this, _$identity);
+  _$$_LoginStateCopyWith<_$_LoginState> get copyWith => __$$_LoginStateCopyWithImpl<_$_LoginState>(this, _$identity);
 }
 
 abstract class _LoginState implements LoginState {
@@ -306,24 +297,32 @@ abstract class _LoginState implements LoginState {
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
+
   @override
   bool get isAuthFailure => throw _privateConstructorUsedError;
+
   @override
   bool get isNetworkFailure => throw _privateConstructorUsedError;
+
   @override
   bool get isOtherFailure => throw _privateConstructorUsedError;
+
   @override
   bool get showInvalidUsernameMessage => throw _privateConstructorUsedError;
+
   @override
   String get invalidUsernameMessage => throw _privateConstructorUsedError;
+
   @override
   bool get showInvalidPasswordMessage => throw _privateConstructorUsedError;
+
   @override
   String get invalidPasswordMessage => throw _privateConstructorUsedError;
+
   @override
   String get navigateTo => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
-  _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_LoginStateCopyWith<_$_LoginState> get copyWith => throw _privateConstructorUsedError;
 }

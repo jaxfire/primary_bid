@@ -1,4 +1,3 @@
-
 enum UsernameValidatorResult { valid, emptyString }
 
 class UsernameValidator {

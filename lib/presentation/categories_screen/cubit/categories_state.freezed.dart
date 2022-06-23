@@ -17,33 +17,31 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CategoriesState {
   bool get isLoading => throw _privateConstructorUsedError;
+
   bool get isNetworkFailure => throw _privateConstructorUsedError;
+
   bool get isOtherFailure => throw _privateConstructorUsedError;
+
   List<String> get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CategoriesStateCopyWith<CategoriesState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $CategoriesStateCopyWith<CategoriesState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CategoriesStateCopyWith<$Res> {
-  factory $CategoriesStateCopyWith(
-          CategoriesState value, $Res Function(CategoriesState) then) =
+  factory $CategoriesStateCopyWith(CategoriesState value, $Res Function(CategoriesState) then) =
       _$CategoriesStateCopyWithImpl<$Res>;
-  $Res call(
-      {bool isLoading,
-      bool isNetworkFailure,
-      bool isOtherFailure,
-      List<String> data});
+
+  $Res call({bool isLoading, bool isNetworkFailure, bool isOtherFailure, List<String> data});
 }
 
 /// @nodoc
-class _$CategoriesStateCopyWithImpl<$Res>
-    implements $CategoriesStateCopyWith<$Res> {
+class _$CategoriesStateCopyWithImpl<$Res> implements $CategoriesStateCopyWith<$Res> {
   _$CategoriesStateCopyWithImpl(this._value, this._then);
 
   final CategoriesState _value;
+
   // ignore: unused_field
   final $Res Function(CategoriesState) _then;
 
@@ -76,25 +74,18 @@ class _$CategoriesStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_CategoriesStateCopyWith<$Res>
-    implements $CategoriesStateCopyWith<$Res> {
-  factory _$$_CategoriesStateCopyWith(
-          _$_CategoriesState value, $Res Function(_$_CategoriesState) then) =
+abstract class _$$_CategoriesStateCopyWith<$Res> implements $CategoriesStateCopyWith<$Res> {
+  factory _$$_CategoriesStateCopyWith(_$_CategoriesState value, $Res Function(_$_CategoriesState) then) =
       __$$_CategoriesStateCopyWithImpl<$Res>;
+
   @override
-  $Res call(
-      {bool isLoading,
-      bool isNetworkFailure,
-      bool isOtherFailure,
-      List<String> data});
+  $Res call({bool isLoading, bool isNetworkFailure, bool isOtherFailure, List<String> data});
 }
 
 /// @nodoc
-class __$$_CategoriesStateCopyWithImpl<$Res>
-    extends _$CategoriesStateCopyWithImpl<$Res>
+class __$$_CategoriesStateCopyWithImpl<$Res> extends _$CategoriesStateCopyWithImpl<$Res>
     implements _$$_CategoriesStateCopyWith<$Res> {
-  __$$_CategoriesStateCopyWithImpl(
-      _$_CategoriesState _value, $Res Function(_$_CategoriesState) _then)
+  __$$_CategoriesStateCopyWithImpl(_$_CategoriesState _value, $Res Function(_$_CategoriesState) _then)
       : super(_value, (v) => _then(v as _$_CategoriesState));
 
   @override
@@ -130,9 +121,7 @@ class __$$_CategoriesStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CategoriesState
-    with DiagnosticableTreeMixin
-    implements _CategoriesState {
+class _$_CategoriesState with DiagnosticableTreeMixin implements _CategoriesState {
   const _$_CategoriesState(
       {required this.isLoading,
       required this.isNetworkFailure,
@@ -147,6 +136,7 @@ class _$_CategoriesState
   @override
   final bool isOtherFailure;
   final List<String> _data;
+
   @override
   List<String> get data {
     // ignore: implicit_dynamic_type
@@ -175,10 +165,8 @@ class _$_CategoriesState
         (other.runtimeType == runtimeType &&
             other is _$_CategoriesState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other.isNetworkFailure, isNetworkFailure) &&
-            const DeepCollectionEquality()
-                .equals(other.isOtherFailure, isOtherFailure) &&
+            const DeepCollectionEquality().equals(other.isNetworkFailure, isNetworkFailure) &&
+            const DeepCollectionEquality().equals(other.isOtherFailure, isOtherFailure) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -205,14 +193,17 @@ abstract class _CategoriesState implements CategoriesState {
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
+
   @override
   bool get isNetworkFailure => throw _privateConstructorUsedError;
+
   @override
   bool get isOtherFailure => throw _privateConstructorUsedError;
+
   @override
   List<String> get data => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
-  _$$_CategoriesStateCopyWith<_$_CategoriesState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_CategoriesStateCopyWith<_$_CategoriesState> get copyWith => throw _privateConstructorUsedError;
 }

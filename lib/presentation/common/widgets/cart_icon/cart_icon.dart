@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:primary_bid/meta/injection_container.dart';
+import 'package:primary_bid/app/injection_container.dart';
 import 'package:primary_bid/presentation/common/colours.dart';
 import 'package:primary_bid/presentation/common/widgets/cart_icon/cubit/cart_icon_cubit.dart';
 import 'package:primary_bid/presentation/common/widgets/cart_icon/cubit/cart_icon_state.dart';
@@ -23,23 +23,34 @@ class _CartIconState extends State<CartIcon> {
         return BlocBuilder<CartIconCubit, CartIconState>(
           bloc: cartIconCubit,
           builder: (context, state) {
-            return Container(
-              decoration: BoxDecoration(
-                color: accent,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(20),
-                ),
-              ),
-              height: 50,
-              width: 50,
-              child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  state.itemCount.toString(),
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ),
-            );
+            return Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colours.tertiary,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(16),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          Icons.shopping_cart_rounded,
+                          color: Colors.white,
+                          size: 20,
+                        ),
+                        SizedBox(width: 10),
+                        Text(
+                          state.itemCount.toString(),
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                ));
           },
         );
       },
