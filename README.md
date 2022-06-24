@@ -60,5 +60,5 @@ Again due to time constraints I haven't achieved a full test coverage but hopefu
 this architecture allows for ease of testing with the few tests that do exist. I've provided a few 
 unit tests for each feature layer (repository and data sources) and some BlocTests in the bloc layer.
 See categories_cubit_test.dart.
-UI tests are included but you they easily could given extra time.
+UI tests aren't included but you they easily could given extra time.
 
