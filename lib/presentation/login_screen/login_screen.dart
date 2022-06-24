@@ -6,6 +6,7 @@ import 'package:primary_bid/presentation/common/styles.dart';
 
 import 'package:primary_bid/presentation/login_screen/cubit/login_cubit.dart';
 import 'package:primary_bid/presentation/login_screen/cubit/state/login_state.dart';
+import 'package:primary_bid/presentation/product_list_screen/widgets/login_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -35,8 +36,46 @@ class _LoginScreenState extends State<LoginScreen> {
         },
         builder: (context, state) {
           return Scaffold(
+            backgroundColor: Colors.white,
+            body: SafeArea(
+              child: Stack(
+                children: [
+                  SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          'Primary Bid',
+                          style: Styles.screenTitle,
+                        ),
+                        LoginTextField(
+                          textEditingController: _usernameController,
+                          label: 'Username',
+                          enabled: !state.isLoading,
+                          helperText: state.invalidUsernameMessage,
+                        ),
+                        LoginTextField(
+                          textEditingController: _passwordController,
+                          label: 'Password',
+                          enabled: !state.isLoading,
+                          helperText: state.invalidPasswordMessage,
+                        ),
+                        Text(
+                          state.failureMessage,
+                          style: Styles.errorMessage,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.center,
+                    child: CircularProgressIndicator(),
+                  ),
+                ],
+              ),
+            ),
             floatingActionButton: ElevatedButton(
-              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colours.tertiary)),
+              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colours.primary)),
               onPressed: state.isLoading
                   ? null
                   : () {
@@ -53,102 +92,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            backgroundColor: Colours.primary,
-            body: SafeArea(
-              child: Stack(
-                children: [
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Primary Bid',
-                          style: Styles.screenTitle,
-                        ),
-                        LoginTextField(
-                          textEditingController: _usernameController,
-                          label: 'Username',
-                          enabled: !state.isLoading,
-                        ),
-                        Visibility(
-                          visible: state.showInvalidUsernameMessage,
-                          child: Text(
-                            state.invalidUsernameMessage,
-                            style: Styles.errorMessage,
-                          ),
-                        ),
-                        LoginTextField(
-                          textEditingController: _passwordController,
-                          label: 'Password',
-                          enabled: !state.isLoading,
-                        ),
-                        Visibility(
-                          visible: state.showInvalidPasswordMessage,
-                          child: Text(
-                            state.invalidPasswordMessage,
-                            style: Styles.errorMessage,
-                          ),
-                        ),
-                        // TODO: Could these be combined? One widget with a message.
-                        Visibility(
-                          visible: state.isAuthFailure,
-                          child: const Text(
-                            'Bad credentials. \nTry: username: mor_2314 password: 83r5^_',
-                            style: Styles.errorMessage,
-                          ),
-                        ),
-                        Visibility(
-                          visible: state.isNetworkFailure,
-                          child: const Text(
-                            'Check network connection.',
-                            style: Styles.errorMessage,
-                          ),
-                        ),
-                        Visibility(
-                          visible: state.isOtherFailure,
-                          child: const Text(
-                            'Something went wrong. Please try again.',
-                            style: Styles.errorMessage,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
           );
         },
-      ),
-    );
-  }
-}
-
-class LoginTextField extends StatelessWidget {
-  const LoginTextField({
-    required TextEditingController textEditingController,
-    required String label,
-    required bool enabled,
-    super.key,
-  })  : _textEditingController = textEditingController,
-        _label = label,
-        _enabled = enabled;
-
-  final TextEditingController _textEditingController;
-  final String _label;
-  final bool _enabled;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-      child: TextField(
-        enabled: _enabled,
-        controller: _textEditingController,
-        decoration: InputDecoration(
-          labelText: _label,
-          labelStyle: const TextStyle(color: Colors.white),
-        ),
-        cursorColor: Colours.accent,
       ),
     );
   }

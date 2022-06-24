@@ -4,7 +4,7 @@ import 'package:primary_bid/features/product/product_failure.dart';
 import 'package:primary_bid/features/product/remote_data_source/product_remote_data_source.dart';
 
 abstract class ProductRepository {
-  Future<Either<GetProductsFailure, List<Product>>> getProductsInCategory(String categoryName);
+  Future<Either<GetProductsFailure, List<Product>>> getProductsInCategory({required String categoryName});
 }
 
 class ProductRepositoryImpl implements ProductRepository {
@@ -15,7 +15,7 @@ class ProductRepositoryImpl implements ProductRepository {
   final ProductRemoteDataSource _productRemoteDataSource;
 
   @override
-  Future<Either<GetProductsFailure, List<Product>>> getProductsInCategory(String categoryName) async {
-    return await _productRemoteDataSource.getProductsInCategory(categoryName);
+  Future<Either<GetProductsFailure, List<Product>>> getProductsInCategory({required String categoryName}) async {
+    return await _productRemoteDataSource.getProductsInCategory(categoryName: categoryName);
   }
 }

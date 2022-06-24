@@ -16,7 +16,7 @@ class ProductListCubit extends Cubit<ProductListState> {
   void getProductsInCategory(String categoryName) async {
     emit(ProductListState.initial().copyWith(isLoading: true));
 
-    final getProductsInCategoryResult = await _productListRepository.getProductsInCategory(categoryName);
+    final getProductsInCategoryResult = await _productListRepository.getProductsInCategory(categoryName: categoryName);
 
     getProductsInCategoryResult.either(
       (getProductsFailure) {

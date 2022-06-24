@@ -7,5 +7,5 @@ import 'package:primary_bid/features/product/product_failure.dart';
 abstract class ProductRemoteDataSource {
   /// Calls the https://fakestoreapi.com/products/category/<category_name> endpoint.
   // TODO: Document the Failure types and reasons
-  Future<Either<GetProductsFailure, List<Product>>> getProductsInCategory(String categoryName);
+  Future<Either<GetProductsFailure, List<Product>>> getProductsInCategory({required String categoryName});
 }

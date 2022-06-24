@@ -45,13 +45,20 @@ class LoginCubit extends Cubit<LoginState> {
       (loginFailure) {
         switch (loginFailure) {
           case LoginFailure.auth:
-            emit(state.copyWith(isAuthFailure: true, isLoading: false));
+            emit(
+              state.copyWith(
+                  failureMessage: 'Bad credentials. \nTry: username: mor_2314 password: 83r5^_', isLoading: false),
+            );
             break;
           case LoginFailure.network:
-            emit(state.copyWith(isNetworkFailure: true, isLoading: false));
+            emit(
+              state.copyWith(failureMessage: 'Check network connection.', isLoading: false),
+            );
             break;
           case LoginFailure.other:
-            emit(state.copyWith(isOtherFailure: true, isLoading: false));
+            emit(
+              state.copyWith(failureMessage: 'Something went wrong. Please try again.', isLoading: false),
+            );
             break;
         }
         emit(state.copyWith(isLoading: false)); // TODO: Is this needed?
@@ -72,7 +79,6 @@ class LoginCubit extends Cubit<LoginState> {
       case UsernameValidatorResult.emptyString:
         emit(state.copyWith(
           invalidUsernameMessage: 'Please provide a username',
-          showInvalidUsernameMessage: true,
         ));
         break;
       case UsernameValidatorResult.valid:
@@ -83,7 +89,6 @@ class LoginCubit extends Cubit<LoginState> {
       case PasswordValidatorResult.emptyString:
         emit(state.copyWith(
           invalidPasswordMessage: 'Please provide a password',
-          showInvalidPasswordMessage: true,
         ));
         break;
       case PasswordValidatorResult.valid:

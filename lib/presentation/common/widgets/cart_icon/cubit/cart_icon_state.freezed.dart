@@ -19,23 +19,24 @@ mixin _$CartIconState {
   int get itemCount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CartIconStateCopyWith<CartIconState> get copyWith => throw _privateConstructorUsedError;
+  $CartIconStateCopyWith<CartIconState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CartIconStateCopyWith<$Res> {
-  factory $CartIconStateCopyWith(CartIconState value, $Res Function(CartIconState) then) =
+  factory $CartIconStateCopyWith(
+          CartIconState value, $Res Function(CartIconState) then) =
       _$CartIconStateCopyWithImpl<$Res>;
-
   $Res call({int itemCount});
 }
 
 /// @nodoc
-class _$CartIconStateCopyWithImpl<$Res> implements $CartIconStateCopyWith<$Res> {
+class _$CartIconStateCopyWithImpl<$Res>
+    implements $CartIconStateCopyWith<$Res> {
   _$CartIconStateCopyWithImpl(this._value, this._then);
 
   final CartIconState _value;
-
   // ignore: unused_field
   final $Res Function(CartIconState) _then;
 
@@ -53,18 +54,21 @@ class _$CartIconStateCopyWithImpl<$Res> implements $CartIconStateCopyWith<$Res> 
 }
 
 /// @nodoc
-abstract class _$$_CartIconStateCopyWith<$Res> implements $CartIconStateCopyWith<$Res> {
-  factory _$$_CartIconStateCopyWith(_$_CartIconState value, $Res Function(_$_CartIconState) then) =
+abstract class _$$_CartIconStateCopyWith<$Res>
+    implements $CartIconStateCopyWith<$Res> {
+  factory _$$_CartIconStateCopyWith(
+          _$_CartIconState value, $Res Function(_$_CartIconState) then) =
       __$$_CartIconStateCopyWithImpl<$Res>;
-
   @override
   $Res call({int itemCount});
 }
 
 /// @nodoc
-class __$$_CartIconStateCopyWithImpl<$Res> extends _$CartIconStateCopyWithImpl<$Res>
+class __$$_CartIconStateCopyWithImpl<$Res>
+    extends _$CartIconStateCopyWithImpl<$Res>
     implements _$$_CartIconStateCopyWith<$Res> {
-  __$$_CartIconStateCopyWithImpl(_$_CartIconState _value, $Res Function(_$_CartIconState) _then)
+  __$$_CartIconStateCopyWithImpl(
+      _$_CartIconState _value, $Res Function(_$_CartIconState) _then)
       : super(_value, (v) => _then(v as _$_CartIconState));
 
   @override
@@ -113,7 +117,8 @@ class _$_CartIconState with DiagnosticableTreeMixin implements _CartIconState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(itemCount));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(itemCount));
 
   @JsonKey(ignore: true)
   @override
@@ -122,12 +127,13 @@ class _$_CartIconState with DiagnosticableTreeMixin implements _CartIconState {
 }
 
 abstract class _CartIconState implements CartIconState {
-  const factory _CartIconState({required final int itemCount}) = _$_CartIconState;
+  const factory _CartIconState({required final int itemCount}) =
+      _$_CartIconState;
 
   @override
   int get itemCount => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
-  _$$_CartIconStateCopyWith<_$_CartIconState> get copyWith => throw _privateConstructorUsedError;
+  _$$_CartIconStateCopyWith<_$_CartIconState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

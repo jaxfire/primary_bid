@@ -39,3 +39,5 @@ flutter:
     - family: Mukta
       fonts:
         - asset: assets/fonts/Mukta-Medium.ttf
+        - asset: assets/fonts/Mukta-Bold.ttf
+          weight: 700

@@ -34,7 +34,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
       bloc: cubit,
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: Colours.primary,
+          backgroundColor: Colors.white,
           body: SafeArea(
             child: Column(
               children: [

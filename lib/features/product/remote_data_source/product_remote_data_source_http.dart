@@ -17,7 +17,7 @@ class ProductRemoteDataSourceHttp implements ProductRemoteDataSource {
   final http.Client _client;
 
   @override
-  Future<Either<GetProductsFailure, List<Product>>> getProductsInCategory(String categoryName) async {
+  Future<Either<GetProductsFailure, List<Product>>> getProductsInCategory({required String categoryName}) async {
     try {
       return await _getProductsInCategory(categoryName);
     } on SocketException {
