@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:either_dart/either.dart';
 import 'package:http/http.dart' as http;
 import 'package:primary_bid/features/common/urls.dart';
-import 'package:primary_bid/features/product/model/product/Product.dart';
+import 'package:primary_bid/features/product/model/product/product.dart';
 import 'package:primary_bid/features/product/product_failure.dart';
 import 'package:primary_bid/features/product/remote_data_source/product_remote_data_source.dart';
 

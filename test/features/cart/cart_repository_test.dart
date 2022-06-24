@@ -2,7 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:primary_bid/features/cart/cart_repository.dart';
 import 'package:primary_bid/features/cart/local_data_source/cart_local_data_source.dart';
-import 'package:primary_bid/features/product/model/product/Product.dart';
+import 'package:primary_bid/features/product/model/product/product.dart';
 import 'package:primary_bid/features/product/model/product/rating/rating.dart';
 
 

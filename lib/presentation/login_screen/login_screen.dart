@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Visibility(
                   visible: state.isLoading,
                   child: const CircularProgressIndicator(
-                    color: Colours.tertiary,
+                    color: Colours.accent,
                   ),
                 ),
               ),

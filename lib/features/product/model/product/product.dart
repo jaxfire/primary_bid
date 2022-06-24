@@ -20,6 +20,7 @@ class Product with _$Product {
     @HiveField(5) required String image,
     @HiveField(6) required Rating rating,  }) = _Product;
 
+
   factory Product.fromJson(Map<String, Object?> json)
   => _$ProductFromJson(json);
 }

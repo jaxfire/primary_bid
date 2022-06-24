@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:primary_bid/features/product/model/product/Product.dart';
+import 'package:primary_bid/features/product/model/product/product.dart';
 
 part 'product_list_state.freezed.dart';
 

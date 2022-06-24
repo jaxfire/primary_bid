@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:primary_bid/features/product/model/product/Product.dart';
+import 'package:primary_bid/features/product/model/product/product.dart';
 import 'package:primary_bid/presentation/common/colours.dart';
 import 'package:primary_bid/presentation/product_list_screen/widgets/product_list_button/product_list_button.dart';
 

@@ -2,7 +2,7 @@ import 'package:either_dart/either.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:primary_bid/features/cart/cart_failure.dart';
 import 'package:primary_bid/features/cart/local_data_source/cart_local_data_source.dart';
-import 'package:primary_bid/features/product/model/product/Product.dart';
+import 'package:primary_bid/features/product/model/product/product.dart';
 
 class CartLocalDataSourceHive implements CartLocalDataSource {
   static const String cartHiveBoxKey = 'cart_hive_box_key';
