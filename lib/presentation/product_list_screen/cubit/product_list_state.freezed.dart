@@ -17,9 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ProductListState {
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get isNetworkFailure => throw _privateConstructorUsedError;
-  bool get isOtherFailure =>
-      throw _privateConstructorUsedError; // TODO: Change to unexpected error?
+  String get failureMessage => throw _privateConstructorUsedError;
   List<Product> get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,11 +30,7 @@ abstract class $ProductListStateCopyWith<$Res> {
   factory $ProductListStateCopyWith(
           ProductListState value, $Res Function(ProductListState) then) =
       _$ProductListStateCopyWithImpl<$Res>;
-  $Res call(
-      {bool isLoading,
-      bool isNetworkFailure,
-      bool isOtherFailure,
-      List<Product> data});
+  $Res call({bool isLoading, String failureMessage, List<Product> data});
 }
 
 /// @nodoc
@@ -51,8 +45,7 @@ class _$ProductListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? isNetworkFailure = freezed,
-    Object? isOtherFailure = freezed,
+    Object? failureMessage = freezed,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
@@ -60,14 +53,10 @@ class _$ProductListStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNetworkFailure: isNetworkFailure == freezed
-          ? _value.isNetworkFailure
-          : isNetworkFailure // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isOtherFailure: isOtherFailure == freezed
-          ? _value.isOtherFailure
-          : isOtherFailure // ignore: cast_nullable_to_non_nullable
-              as bool,
+      failureMessage: failureMessage == freezed
+          ? _value.failureMessage
+          : failureMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -83,11 +72,7 @@ abstract class _$$_ProductListStateCopyWith<$Res>
           _$_ProductListState value, $Res Function(_$_ProductListState) then) =
       __$$_ProductListStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {bool isLoading,
-      bool isNetworkFailure,
-      bool isOtherFailure,
-      List<Product> data});
+  $Res call({bool isLoading, String failureMessage, List<Product> data});
 }
 
 /// @nodoc
@@ -104,8 +89,7 @@ class __$$_ProductListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? isNetworkFailure = freezed,
-    Object? isOtherFailure = freezed,
+    Object? failureMessage = freezed,
     Object? data = freezed,
   }) {
     return _then(_$_ProductListState(
@@ -113,14 +97,10 @@ class __$$_ProductListStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNetworkFailure: isNetworkFailure == freezed
-          ? _value.isNetworkFailure
-          : isNetworkFailure // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isOtherFailure: isOtherFailure == freezed
-          ? _value.isOtherFailure
-          : isOtherFailure // ignore: cast_nullable_to_non_nullable
-              as bool,
+      failureMessage: failureMessage == freezed
+          ? _value.failureMessage
+          : failureMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       data: data == freezed
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -136,20 +116,15 @@ class _$_ProductListState
     implements _ProductListState {
   const _$_ProductListState(
       {required this.isLoading,
-      required this.isNetworkFailure,
-      required this.isOtherFailure,
+      required this.failureMessage,
       required final List<Product> data})
       : _data = data;
 
   @override
   final bool isLoading;
   @override
-  final bool isNetworkFailure;
-  @override
-  final bool isOtherFailure;
-// TODO: Change to unexpected error?
+  final String failureMessage;
   final List<Product> _data;
-// TODO: Change to unexpected error?
   @override
   List<Product> get data {
     // ignore: implicit_dynamic_type
@@ -158,7 +133,7 @@ class _$_ProductListState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProductListState(isLoading: $isLoading, isNetworkFailure: $isNetworkFailure, isOtherFailure: $isOtherFailure, data: $data)';
+    return 'ProductListState(isLoading: $isLoading, failureMessage: $failureMessage, data: $data)';
   }
 
   @override
@@ -167,8 +142,7 @@ class _$_ProductListState
     properties
       ..add(DiagnosticsProperty('type', 'ProductListState'))
       ..add(DiagnosticsProperty('isLoading', isLoading))
-      ..add(DiagnosticsProperty('isNetworkFailure', isNetworkFailure))
-      ..add(DiagnosticsProperty('isOtherFailure', isOtherFailure))
+      ..add(DiagnosticsProperty('failureMessage', failureMessage))
       ..add(DiagnosticsProperty('data', data));
   }
 
@@ -179,9 +153,7 @@ class _$_ProductListState
             other is _$_ProductListState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
-                .equals(other.isNetworkFailure, isNetworkFailure) &&
-            const DeepCollectionEquality()
-                .equals(other.isOtherFailure, isOtherFailure) &&
+                .equals(other.failureMessage, failureMessage) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -189,8 +161,7 @@ class _$_ProductListState
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isNetworkFailure),
-      const DeepCollectionEquality().hash(isOtherFailure),
+      const DeepCollectionEquality().hash(failureMessage),
       const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
@@ -202,17 +173,14 @@ class _$_ProductListState
 abstract class _ProductListState implements ProductListState {
   const factory _ProductListState(
       {required final bool isLoading,
-      required final bool isNetworkFailure,
-      required final bool isOtherFailure,
+      required final String failureMessage,
       required final List<Product> data}) = _$_ProductListState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
   @override
-  bool get isNetworkFailure => throw _privateConstructorUsedError;
+  String get failureMessage => throw _privateConstructorUsedError;
   @override
-  bool get isOtherFailure => throw _privateConstructorUsedError;
-  @override // TODO: Change to unexpected error?
   List<Product> get data => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

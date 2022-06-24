@@ -22,10 +22,10 @@ class ProductListCubit extends Cubit<ProductListState> {
       (getProductsFailure) {
         switch (getProductsFailure) {
           case GetProductsFailure.network:
-            emit(ProductListState.initial().copyWith(isNetworkFailure: true));
+            emit(ProductListState.initial().copyWith(failureMessage: 'Check network connection.'));
             break;
           case GetProductsFailure.other:
-            emit(ProductListState.initial().copyWith(isOtherFailure: true));
+            emit(ProductListState.initial().copyWith(failureMessage: 'Something went wrong. Please try again.'));
             break;
         }
       },

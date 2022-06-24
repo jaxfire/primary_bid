@@ -28,25 +28,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
     cubit.getProductsInCategory(widget.categoryName);
   }
 
-  // const Align(
-  // alignment: Alignment.bottomLeft,
-  // child: CartIcon(),
-  // ),
-
-  // Visibility(
-  // visible: state.isLoading,
-  // child: const CircularProgressIndicator(color: Colours.accent,),
-  // ),
-  // // TODO: Could these be combined? One widget with a message.
-  // Visibility(
-  // visible: state.isNetworkFailure,
-  // child: const Text('Check network connection.'),
-  // ),
-  // Visibility(
-  // visible: state.isOtherFailure,
-  // child: const Text('Something went wrong. Please try again.'),
-  // ),
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProductListCubit, ProductListState>(
@@ -54,36 +35,44 @@ class _ProductListScreenState extends State<ProductListScreen> {
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Colors.white,
-          body: SafeArea(
-            child: Column(
-              children: [
-                const Text(
-                  'Products',
-                  style: Styles.screenTitle,
-                ),
-                Expanded(
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.center,
-                        child: Column(
-                          children: [
-
-                          ],
-                        ),
-                      ),
-                      ListView.builder(
+          body: Stack(
+            children: [
+              SafeArea(
+                child: Column(
+                  children: [
+                    const Text(
+                      'Products',
+                      style: Styles.screenTitle,
+                    ),
+                    Visibility(
+                      visible: state.failureMessage.isNotEmpty,
+                      child: Text(state.failureMessage),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
                         itemCount: state.data.length,
                         itemBuilder: (context, index) {
                           return ProductCard(product: state.data[index]);
                         },
                       ),
-
-                    ],
+                    ),
+                  ],
+                ),
+              ),
+              const Align(
+                alignment: Alignment.bottomLeft,
+                child: CartIcon(),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Visibility(
+                  visible: state.isLoading,
+                  child: const CircularProgressIndicator(
+                    color: Colours.accent,
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },

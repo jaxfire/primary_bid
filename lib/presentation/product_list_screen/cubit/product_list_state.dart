@@ -8,15 +8,13 @@ part 'product_list_state.freezed.dart';
 class ProductListState with _$ProductListState {
   const factory ProductListState({
     required bool isLoading,
-    required bool isNetworkFailure,
-    required bool isOtherFailure, // TODO: Change to unexpected error?
+    required String failureMessage,
     required List<Product> data,
   }) = _ProductListState;
 
   factory ProductListState.initial() => const ProductListState(
         isLoading: false,
-        isNetworkFailure: false,
-        isOtherFailure: false,
+        failureMessage: '',
         data: [],
       );
 }
