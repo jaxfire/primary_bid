@@ -10,6 +10,7 @@ still adhering (loosely) to Clean Architecture guidelines. I also wanted to use 
 approach rather than 'layer-first'. https://codewithandrea.com/articles/flutter-project-structure/
 
 As such here's the structure...
+
 ~lib
 - feature
 - - auth
