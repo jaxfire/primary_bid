@@ -46,7 +46,10 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     ),
                     Visibility(
                       visible: state.failureMessage.isNotEmpty,
-                      child: Text(state.failureMessage),
+                      child: Text(
+                        state.failureMessage,
+                        style: Styles.errorMessage,
+                      ),
                     ),
                     Expanded(
                       child: ListView.builder(

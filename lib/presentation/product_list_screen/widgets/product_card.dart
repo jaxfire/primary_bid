@@ -17,6 +17,8 @@ class ProductCard extends StatelessWidget {
         width: double.infinity,
         height: 250,
         child: Card(
+          elevation: 6,
+          shadowColor: Colours.accent,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(
