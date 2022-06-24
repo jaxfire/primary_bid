@@ -16,8 +16,7 @@ class CartIconCubit extends Cubit<CartIconState> {
     _cartRepository.watchCartCount().listen((event) {
       event.either(
         (failure) {
-          print('Failure');
-          // TODO:
+          // Ignore for this demo
         },
         (cartCount) {
           emit(state.copyWith(itemCount: cartCount));

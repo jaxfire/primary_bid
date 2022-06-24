@@ -1,5 +1,5 @@
 enum LoginFailure {
   auth,
   network,
-  other, // TODO: Consider a better name
+  other, // TODO: Consider a better name. 'Unexpected'?
 }

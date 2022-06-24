@@ -18,7 +18,7 @@ class CartLocalDataSourceHive implements CartLocalDataSource {
       var box = Hive.box<Product>(cartHiveBoxKey);
       box.put(product.id, product);
     } catch (e) {
-      // TODO:
+      // Ignore for this demo
     }
   }
 
@@ -29,7 +29,7 @@ class CartLocalDataSourceHive implements CartLocalDataSource {
       var box = Hive.box<Product>(cartHiveBoxKey);
       box.delete(product.id);
     } catch (e) {
-      // TODO:
+      // Ignore for this demo
     }
   }
 

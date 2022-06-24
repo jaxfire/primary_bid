@@ -13,9 +13,7 @@ class RouteGenerator {
       case CategoriesScreen.routeName:
         return MaterialPageRoute(builder: (context) => const CategoriesScreen());
       case ProductListScreen.routeName:
-        return MaterialPageRoute(
-            builder: (context) =>
-                ProductListScreen(categoryName: args as String)); // TODO: Double check this. Can we make it better?
+        return MaterialPageRoute(builder: (context) => ProductListScreen(categoryName: args as String));
       default:
         return _errorRoute();
     }

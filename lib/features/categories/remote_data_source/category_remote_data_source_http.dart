@@ -30,7 +30,7 @@ class CategoryRemoteDataSourceHttp implements CategoryRemoteDataSource {
 
   Future<Either<GetCategoriesFailure, List<String>>> _getCategories() async {
     final response = await _client.get(
-      Uri.parse('$baseUrl$getCategoriesEndpoint'), // TODO: Unit test this. Rework storing of urls.
+      Uri.parse('$baseUrl$getCategoriesEndpoint'),
       headers: {
         'Accept': 'application/json',
       },

@@ -22,8 +22,7 @@ class PrimaryBidApp extends StatelessWidget {
           ),
         ),
       ),
-      // initialRoute: LoginScreen.routeName, // TODO: Change back to login
-      initialRoute: CategoriesScreen.routeName,
+      initialRoute: LoginScreen.routeName,
       onGenerateRoute: RouteGenerator.generateRoute,
     );
   }

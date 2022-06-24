@@ -6,7 +6,7 @@ import 'package:primary_bid/presentation/product_list_screen/widgets/product_lis
 
 enum ProductListButtonType {
   add,
-  delete, // TODO: Rename to remove?
+  delete,
 }
 
 class ProductListButton extends StatelessWidget {

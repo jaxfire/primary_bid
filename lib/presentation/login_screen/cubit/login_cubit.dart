@@ -24,44 +24,29 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginRepository _loginRepository;
   final AuthRepository _authRepository;
 
-  // TODO: Can we break up large cubit/bloc methods?
   void onLoginButtonClicked(String username, String password) async {
     emit(LoginState.initial().copyWith(isLoading: true));
 
-    // TODO: Could hash the password here using DI'd in hasher
+    // TODO: Hash the password here
 
     final usernameValidatorResponse = _usernameValidator.validateUserName(username);
     final passwordValidatorResponse = _passwordValidator.validatePassword(password);
 
     if (usernameValidatorResponse != UsernameValidatorResult.valid ||
         passwordValidatorResponse != PasswordValidatorResult.valid) {
-      emitValidationErrorMessages(usernameValidatorResponse, passwordValidatorResponse);
+      _emitValidationErrorMessages(usernameValidatorResponse, passwordValidatorResponse);
       emit(state.copyWith(isLoading: false));
       return;
     }
 
+    await _attemptLogin(username, password);
+  }
+
+  Future<void> _attemptLogin(String username, String password) async {
     final loginResult = await _loginRepository.login(username: username, password: password);
     loginResult.either(
       (loginFailure) {
-        switch (loginFailure) {
-          case LoginFailure.auth:
-            emit(
-              state.copyWith(
-                  failureMessage: 'Bad credentials. \nTry: username: mor_2314 password: 83r5^_', isLoading: false),
-            );
-            break;
-          case LoginFailure.network:
-            emit(
-              state.copyWith(failureMessage: 'Check network connection.', isLoading: false),
-            );
-            break;
-          case LoginFailure.other:
-            emit(
-              state.copyWith(failureMessage: 'Something went wrong. Please try again.', isLoading: false),
-            );
-            break;
-        }
-        emit(state.copyWith(isLoading: false)); // TODO: Is this needed?
+        handleFailure(loginFailure);
       },
       (authToken) {
         _authRepository.setAuthToken(authToken: authToken);
@@ -70,7 +55,24 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  void emitValidationErrorMessages(
+  void handleFailure(LoginFailure loginFailure) {
+    var errorMessage = '';
+    switch (loginFailure) {
+      case LoginFailure.auth:
+        errorMessage = 'Bad credentials. \nTry: username: mor_2314 password: 83r5^_';
+        break;
+      case LoginFailure.network:
+        errorMessage = 'Check network connection.';
+        break;
+      case LoginFailure.other:
+        errorMessage = 'Something went wrong. Please try again.';
+        break;
+    }
+    emit(
+      state.copyWith(failureMessage: errorMessage, isLoading: false));
+  }
+
+  void _emitValidationErrorMessages(
     UsernameValidatorResult usernameValidatorResult,
     PasswordValidatorResult passwordValidatorResult,
   ) {

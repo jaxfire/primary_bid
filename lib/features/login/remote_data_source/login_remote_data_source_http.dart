@@ -30,7 +30,7 @@ class LoginRemoteDataSourceHttp implements LoginRemoteDataSource {
 
   Future<Either<LoginFailure, String>> _login({required String username, required String password}) async {
     final response = await _client.post(
-      Uri.parse('$baseUrl$loginEndpoint'), // TODO: Unit test this. Rework storing of urls.
+      Uri.parse('$baseUrl$loginEndpoint'),
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

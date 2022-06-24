@@ -12,7 +12,6 @@ class ProductListCubit extends Cubit<ProductListState> {
 
   final ProductRepository _productListRepository;
 
-  // TODO: Rename to get all categories?
   void getProductsInCategory(String categoryName) async {
     emit(ProductListState.initial().copyWith(isLoading: true));
 
