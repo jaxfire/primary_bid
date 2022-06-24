@@ -7,15 +7,13 @@ part 'categories_state.freezed.dart';
 class CategoriesState with _$CategoriesState {
   const factory CategoriesState({
     required bool isLoading,
-    required bool isNetworkFailure,
-    required bool isOtherFailure,
+    required String failureMessage,
     required List<String> data,
   }) = _CategoriesState;
 
   factory CategoriesState.initial() => const CategoriesState(
         isLoading: false,
-        isNetworkFailure: false,
-        isOtherFailure: false,
+        failureMessage: '',
         data: [],
       );
 }

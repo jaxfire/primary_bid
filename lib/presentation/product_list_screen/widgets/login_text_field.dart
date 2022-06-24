@@ -21,7 +21,7 @@ class LoginTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Opacity(
-      opacity: _enabled ? 1.0 : 0.4,
+      opacity: _enabled ? 1.0 : 0.5,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child: TextField(

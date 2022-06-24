@@ -17,8 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CategoriesState {
   bool get isLoading => throw _privateConstructorUsedError;
-  bool get isNetworkFailure => throw _privateConstructorUsedError;
-  bool get isOtherFailure => throw _privateConstructorUsedError;
+  String get failureMessage => throw _privateConstructorUsedError;
   List<String> get data => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,11 +30,7 @@ abstract class $CategoriesStateCopyWith<$Res> {
   factory $CategoriesStateCopyWith(
           CategoriesState value, $Res Function(CategoriesState) then) =
       _$CategoriesStateCopyWithImpl<$Res>;
-  $Res call(
-      {bool isLoading,
-      bool isNetworkFailure,
-      bool isOtherFailure,
-      List<String> data});
+  $Res call({bool isLoading, String failureMessage, List<String> data});
 }
 
 /// @nodoc
@@ -50,8 +45,7 @@ class _$CategoriesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? isNetworkFailure = freezed,
-    Object? isOtherFailure = freezed,
+    Object? failureMessage = freezed,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
@@ -59,14 +53,10 @@ class _$CategoriesStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNetworkFailure: isNetworkFailure == freezed
-          ? _value.isNetworkFailure
-          : isNetworkFailure // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isOtherFailure: isOtherFailure == freezed
-          ? _value.isOtherFailure
-          : isOtherFailure // ignore: cast_nullable_to_non_nullable
-              as bool,
+      failureMessage: failureMessage == freezed
+          ? _value.failureMessage
+          : failureMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -82,11 +72,7 @@ abstract class _$$_CategoriesStateCopyWith<$Res>
           _$_CategoriesState value, $Res Function(_$_CategoriesState) then) =
       __$$_CategoriesStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {bool isLoading,
-      bool isNetworkFailure,
-      bool isOtherFailure,
-      List<String> data});
+  $Res call({bool isLoading, String failureMessage, List<String> data});
 }
 
 /// @nodoc
@@ -103,8 +89,7 @@ class __$$_CategoriesStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
-    Object? isNetworkFailure = freezed,
-    Object? isOtherFailure = freezed,
+    Object? failureMessage = freezed,
     Object? data = freezed,
   }) {
     return _then(_$_CategoriesState(
@@ -112,14 +97,10 @@ class __$$_CategoriesStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      isNetworkFailure: isNetworkFailure == freezed
-          ? _value.isNetworkFailure
-          : isNetworkFailure // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isOtherFailure: isOtherFailure == freezed
-          ? _value.isOtherFailure
-          : isOtherFailure // ignore: cast_nullable_to_non_nullable
-              as bool,
+      failureMessage: failureMessage == freezed
+          ? _value.failureMessage
+          : failureMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       data: data == freezed
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -135,17 +116,14 @@ class _$_CategoriesState
     implements _CategoriesState {
   const _$_CategoriesState(
       {required this.isLoading,
-      required this.isNetworkFailure,
-      required this.isOtherFailure,
+      required this.failureMessage,
       required final List<String> data})
       : _data = data;
 
   @override
   final bool isLoading;
   @override
-  final bool isNetworkFailure;
-  @override
-  final bool isOtherFailure;
+  final String failureMessage;
   final List<String> _data;
   @override
   List<String> get data {
@@ -155,7 +133,7 @@ class _$_CategoriesState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'CategoriesState(isLoading: $isLoading, isNetworkFailure: $isNetworkFailure, isOtherFailure: $isOtherFailure, data: $data)';
+    return 'CategoriesState(isLoading: $isLoading, failureMessage: $failureMessage, data: $data)';
   }
 
   @override
@@ -164,8 +142,7 @@ class _$_CategoriesState
     properties
       ..add(DiagnosticsProperty('type', 'CategoriesState'))
       ..add(DiagnosticsProperty('isLoading', isLoading))
-      ..add(DiagnosticsProperty('isNetworkFailure', isNetworkFailure))
-      ..add(DiagnosticsProperty('isOtherFailure', isOtherFailure))
+      ..add(DiagnosticsProperty('failureMessage', failureMessage))
       ..add(DiagnosticsProperty('data', data));
   }
 
@@ -176,9 +153,7 @@ class _$_CategoriesState
             other is _$_CategoriesState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
-                .equals(other.isNetworkFailure, isNetworkFailure) &&
-            const DeepCollectionEquality()
-                .equals(other.isOtherFailure, isOtherFailure) &&
+                .equals(other.failureMessage, failureMessage) &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -186,8 +161,7 @@ class _$_CategoriesState
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isNetworkFailure),
-      const DeepCollectionEquality().hash(isOtherFailure),
+      const DeepCollectionEquality().hash(failureMessage),
       const DeepCollectionEquality().hash(_data));
 
   @JsonKey(ignore: true)
@@ -199,16 +173,13 @@ class _$_CategoriesState
 abstract class _CategoriesState implements CategoriesState {
   const factory _CategoriesState(
       {required final bool isLoading,
-      required final bool isNetworkFailure,
-      required final bool isOtherFailure,
+      required final String failureMessage,
       required final List<String> data}) = _$_CategoriesState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
   @override
-  bool get isNetworkFailure => throw _privateConstructorUsedError;
-  @override
-  bool get isOtherFailure => throw _privateConstructorUsedError;
+  String get failureMessage => throw _privateConstructorUsedError;
   @override
   List<String> get data => throw _privateConstructorUsedError;
   @override

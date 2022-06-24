@@ -26,26 +26,26 @@ class _CartIconState extends State<CartIcon> {
             return Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Container(
-                  decoration: BoxDecoration(
-                    color: Colours.tertiary,
+                  decoration: const BoxDecoration(
+                    color: Colours.primary,
                     borderRadius: BorderRadius.all(
                       Radius.circular(16),
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.shopping_cart_rounded,
                           color: Colors.white,
                           size: 20,
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           state.itemCount.toString(),
-                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),

@@ -35,54 +35,40 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         bloc: cubit,
         builder: (context, state) {
           return Scaffold(
-            backgroundColor: Colours.primary,
-            body: SafeArea(
-              child: Column(
-                children: [
-                  const Text(
-                    'Categories',
-                    style: Styles.screenTitle,
-                  ),
-                  Expanded(
-                    child: Stack(
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: Column(
-                            children: [
-                              Visibility(
-                                visible: state.isLoading,
-                                child: const CircularProgressIndicator(
-                                  color: Colours.accent,
-                                ),
-                              ),
-                              // TODO: Could these be combined? One widget with a message.
-                              Visibility(
-                                visible: state.isNetworkFailure,
-                                child: const Text('Check network connection.'),
-                              ),
-                              Visibility(
-                                visible: state.isOtherFailure,
-                                child: const Text('Something went wrong. Please try again.'),
-                              ),
-                            ],
-                          ),
+            backgroundColor: Colors.white,
+            body: Stack(
+              children: [
+                SafeArea(
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Categories',
+                        style: Styles.screenTitle,
+                      ),
+                      Visibility(
+                        visible: state.failureMessage.isNotEmpty,
+                        child: Text(
+                          state.failureMessage,
+                          style: Styles.errorMessage,
                         ),
-                        ListView.builder(
+                      ),
+                      Expanded(
+                        child: ListView.builder(
                           itemCount: state.data.length,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(12),
                               child: Container(
                                 padding: const EdgeInsets.all(4),
-                                decoration: const BoxDecoration(
-                                  color: Colours.accent,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(50),
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: Colours.accent),
+                                  // color: Colours.accent,
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(10),
                                   ),
                                 ),
                                 child: ListTile(
-                                  textColor: Colors.white,
+                                  textColor: Colours.tertiary,
                                   title: Text(
                                     state.data[index],
                                     style: const TextStyle(
@@ -101,15 +87,24 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             );
                           },
                         ),
-                        const Align(
-                          alignment: Alignment.bottomLeft,
-                          child: CartIcon(),
-                        ),
-                      ],
+                      ),
+                    ],
+                  ),
+                ),
+                const Align(
+                  alignment: Alignment.bottomLeft,
+                  child: CartIcon(),
+                ),
+                Align(
+                  alignment: Alignment.center,
+                  child: Visibility(
+                    visible: state.isLoading,
+                    child: const CircularProgressIndicator(
+                      color: Colours.accent,
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },
