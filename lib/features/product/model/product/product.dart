@@ -3,8 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:primary_bid/features/product/model/product/rating/rating.dart';
 
-part 'Product.freezed.dart';
-part 'Product.g.dart';
+part 'product.freezed.dart';
+part 'product.g.dart';
 
 @freezed
 class Product with _$Product {

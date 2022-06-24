@@ -1,4 +1,4 @@
-import 'package:either_dart/src/either.dart';
+import 'package:either_dart/either.dart';
 import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source.dart';
 import 'package:primary_bid/features/login/login_failure.dart';
 

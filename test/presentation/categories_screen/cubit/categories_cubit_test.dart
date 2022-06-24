@@ -5,7 +5,6 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:primary_bid/features/categories/category_failure.dart';
 import 'package:primary_bid/features/categories/category_repository.dart';
 import 'package:primary_bid/features/categories/remote_data_source/category_remote_data_source.dart';
-import 'package:primary_bid/features/categories/remote_data_source/category_remote_data_source_http.dart';
 import 'package:primary_bid/presentation/categories_screen/cubit/categories_cubit.dart';
 import 'package:primary_bid/presentation/categories_screen/cubit/categories_state.dart';
 

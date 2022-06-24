@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:primary_bid/app/injection_container.dart';
 import 'package:primary_bid/presentation/categories_screen/cubit/categories_cubit.dart';
 import 'package:primary_bid/presentation/categories_screen/cubit/categories_state.dart';

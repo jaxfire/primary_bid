@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:primary_bid/features/cart/cart_repository.dart';
 import 'package:primary_bid/features/product/product_failure.dart';
 import 'package:primary_bid/features/product/product_repository.dart';
 import 'package:primary_bid/presentation/product_list_screen/cubit/product_list_state.dart';

@@ -1,4 +1,4 @@
-import 'package:either_dart/src/either.dart';
+import 'package:either_dart/either.dart';
 import 'package:primary_bid/features/categories/category_failure.dart';
 import 'package:primary_bid/features/categories/remote_data_source/category_remote_data_source.dart';
 

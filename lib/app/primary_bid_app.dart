@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:primary_bid/app/route_generator.dart';
-import 'package:primary_bid/presentation/categories_screen/categories_screen.dart';
 import 'package:primary_bid/presentation/common/colours.dart';
 import 'package:primary_bid/presentation/login_screen/login_screen.dart';
 
