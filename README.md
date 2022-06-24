@@ -11,16 +11,37 @@ approach rather than 'layer-first'. https://codewithandrea.com/articles/flutter-
 
 As such here's the structure...
 ~lib
-~ feature
-~ ~ ~ auth
-~ ~ ~ cart
-~ ~ ~ categories
-~ ~ ~ login
-~ ~ ~ product
-~ ~ ~ ~ model
-~ ~ ~ ~ product_repository
-~ ~ ~ ~ product_data_sources
+- feature
+- - auth
+- - cart
+- - categories
+- - login
+- - product
+- - - model
+- - - product_repository
+- - - product_data_sources
+- presentation
+- - auth
+- - - categories_screen
+- - - login_screen
+- - - product_list_screen
+- - - - cubit
+- - - - widgets
+- - - - product_list_screen
 
+With this architecture a 'feature' is not considered a screen(s), instead it's 'something the app 
+can do'. If we skim the feature directory, we can easily see all the functionality available to us
+as developers (auth, cart, login etc). This allows us to build Screens and their corresponding state
+management service (in this case Bloc/Cubit) and use the features as reusable chunks of code.
+
+There is no Domain layer here. I decided to skip it due to the size of the project.
+UseCases/Interactors were merely useless facades for our repositories and due to using Freezed to
+generate our entities no Model/Entity mapping was required. If we want to change our Data classes
+we need only do it in one place and then regenerate the files.
+
+I'm not suggesting I'd always use this architecture but it fit this projects requirements nicely and
+allowed for speedy development without restricting the ability to easily test everything that should
+be tested
 
 ### Devices
 Due to my hardware limitations this project has only been tested on an Android device.
