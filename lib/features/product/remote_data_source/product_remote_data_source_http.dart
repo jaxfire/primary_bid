@@ -32,7 +32,7 @@ class ProductRemoteDataSourceHttp implements ProductRemoteDataSource {
   Future<Either<GetProductsFailure, List<Product>>> _getProductsInCategory(String categoryName) async {
 
     final response = await _client.get(
-      Uri.parse('$baseUrl$getProductsInCategoryEndpoint$categoryName'), // TODO: Unit test this. Rework storing of urls.
+      Uri.parse('$baseUrl$getProductsInCategoryEndpoint$categoryName'),
       headers: {
         'Accept': 'application/json',
       },

@@ -10,7 +10,6 @@ class CategoriesCubit extends Cubit<CategoriesState> {
 
   final CategoryRepository _categoryRepository;
 
-  // TODO: Rename to get all categories?
   void getCategories() async {
     emit(CategoriesState.initial().copyWith(isLoading: true));
 

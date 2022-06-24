@@ -4,7 +4,6 @@ import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:primary_bid/features/common/urls.dart';
 import 'package:primary_bid/features/login/login_failure.dart';
 import 'package:primary_bid/features/login/remote_data_source/login_remote_data_source.dart';
 import 'package:http/http.dart' as http;
