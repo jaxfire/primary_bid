@@ -35,12 +35,12 @@ class _LoginScreenState extends State<LoginScreen> {
           }
         },
         builder: (context, state) {
-          return Scaffold(
-            backgroundColor: Colors.white,
-            body: SafeArea(
-              child: Stack(
-                children: [
-                  SingleChildScrollView(
+          return Stack(
+            children: [
+              Scaffold(
+                backgroundColor: Colors.white,
+                body: SafeArea(
+                  child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -67,31 +67,36 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: CircularProgressIndicator(),
+                ),
+                floatingActionButton: ElevatedButton(
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colours.primary)),
+                  onPressed: state.isLoading
+                      ? null
+                      : () {
+                          cubit.onLoginButtonClicked(
+                            _usernameController.text,
+                            _passwordController.text,
+                          );
+                        },
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text(
+                      'login',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
-                ],
-              ),
-            ),
-            floatingActionButton: ElevatedButton(
-              style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colours.primary)),
-              onPressed: state.isLoading
-                  ? null
-                  : () {
-                      cubit.onLoginButtonClicked(
-                        _usernameController.text,
-                        _passwordController.text,
-                      );
-                    },
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'login',
-                  style: TextStyle(fontSize: 20),
                 ),
               ),
-            ),
+              Align(
+                alignment: Alignment.center,
+                child: Visibility(
+                  visible: state.isLoading,
+                  child: const CircularProgressIndicator(
+                    color: Colours.tertiary,
+                  ),
+                ),
+              ),
+            ],
           );
         },
       ),
